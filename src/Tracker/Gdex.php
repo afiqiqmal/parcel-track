@@ -15,9 +15,11 @@ class Gdex extends BaseTracker
 {
     protected $url = "http://web2.gdexpress.com/official/iframe/etracking_v2.php";
     protected $source = "GD Express Sdn Bhd";
+    protected $code = "gdex";
 
     public function setTrackingNumber($refNum)
     {
+        parent::setTrackingNumber($refNum);
         return [
             'capture' => $refNum,
             'redoc_gdex' => 'cnGdex',
@@ -66,11 +68,6 @@ class Gdex extends BaseTracker
             $crawlerResult = [];
         }
 
-        return [
-            'code' => $result['status_code'],
-            'error' => false,
-            'tracker' => array_reverse($crawlerResult),
-            'footer' => $result['footer']
-        ];
+        return $this->buildResponse($result, $crawlerResult);
     }
 }

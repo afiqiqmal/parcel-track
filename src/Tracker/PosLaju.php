@@ -15,9 +15,11 @@ class PosLaju extends BaseTracker
 {
     protected $url = "https://poslaju.com.my/track-trace-v2/";
     protected $source = "Post Laju";
+    protected $code = "poslaju";
 
     public function setTrackingNumber($refNum)
     {
+        parent::setTrackingNumber($refNum);
         return [
             'trackingNo03' => $refNum,
             'hvfromheader03' => 0,
@@ -55,11 +57,6 @@ class PosLaju extends BaseTracker
             }
         );
 
-        return [
-            'code' => $result['status_code'],
-            'error' => false,
-            'tracker' => array_reverse($crawlerResult),
-            'footer' => $result['footer']
-        ];
+        return $this->buildResponse($result, $crawlerResult);
     }
 }

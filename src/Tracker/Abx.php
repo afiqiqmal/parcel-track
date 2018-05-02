@@ -15,9 +15,11 @@ class Abx extends BaseTracker
 {
     protected $url = "http://www.abxexpress.com.my/track.asp?vsearch=True";
     protected $source = "ABX Express Sdn Bhd";
+    protected $code = "abx";
 
     public function setTrackingNumber($refNum)
     {
+        parent::setTrackingNumber($refNum);
         return [
             'tairbillno' => $refNum,
         ];
@@ -57,11 +59,6 @@ class Abx extends BaseTracker
                 }
             );
 
-        return [
-            'code' => $result['status_code'],
-            'error' => false,
-            'tracker' => array_reverse($crawlerResult),
-            'footer' => $result['footer']
-        ];
+        return $this->buildResponse($result, $crawlerResult);
     }
 }

@@ -8,19 +8,52 @@
 
 namespace afiqiqmal\ParcelTrack\Tracker;
 
+use Carbon\Carbon;
+
 class BaseTracker
 {
     protected $url = null;
+    protected $code = null;
     protected $source = "Parcel Tracker";
+    protected $tracking_number = null;
 
     public function getUrl()
     {
         return $this->url;
     }
 
+    public function getCode()
+    {
+        return $this->code;
+    }
+
     public function getSourceName() 
     {
         return $this->source;
+    }
+
+    public function getTrackingNumber()
+    {
+        return $this->tracking_number;
+    }
+
+    public function setTrackingNumber($refNum)
+    {
+        $this->tracking_number = $refNum;
+    }
+
+    protected function buildResponse($result, $data, $reverse = true)
+    {
+        $tracker['tracking_number'] = $this->getTrackingNumber();
+        $tracker['provider'] = $this->getCode();
+        $tracker['timeline'] = $reverse ? array_reverse($data) : $data;
+        return [
+            'code' => $result['status_code'],
+            'error' => false,
+            'tracker' => $tracker,
+            'generated_at' => Carbon::now()->toDateTimeString(),
+            'footer' => $result['footer']
+        ];
     }
 
     protected function distinguishProcess($process)
@@ -34,8 +67,12 @@ class BaseTracker
             return "dispatch";
         }
 
+        if (preg_match('(sort)', $process)) {
+            return "sorting";
+        }
+
         if (preg_match('(facility|transit|inbound)', $process)) {
-            return "arrived_facility";
+            return "facility_process";
         }
 
         if (preg_match('(delivery)', $process)) {
