@@ -26,7 +26,7 @@ class BaseTracker
     protected function distinguishProcess($process)
     {
         $process = strtolower($process);
-        if (preg_match('(counter|outbound)', $process)) {
+        if (preg_match('(counter|outbound|transhipment)', $process)) {
             return "item_received";
         }
 
