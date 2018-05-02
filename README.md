@@ -5,6 +5,8 @@
 
 Simple Parcel Tracker Packagist for Local Parcel Courier. Basically it just crawl the courier website. Need time to time monitor changes before failure happend.
 
+Pftt.. I just dont know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all test passed =)
+
 * Currently just only POSTLAJU, GDEX, ABXExpress
 
 Tested in PHP 7.1
