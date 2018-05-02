@@ -11,34 +11,34 @@ namespace afiqiqmal\ParcelTrack\Tracker;
 use Carbon\Carbon;
 use Symfony\Component\DomCrawler\Crawler;
 
-class PosLaju extends BaseTracker
+class Gdex extends BaseTracker
 {
-    protected $url = "https://poslaju.com.my/track-trace-v2/";
-    protected $source = "Post Laju";
+    protected $url = "http://web2.gdexpress.com/official/iframe/etracking_v2.php";
+    protected $source = "GD Express Sdn Bhd";
 
     public function setTrackingNumber($refNum)
     {
         return [
-            'trackingNo03' => $refNum,
-            'hvfromheader03' => 0,
-            'hvtrackNoHeader03' => null,
+            'capture' => $refNum,
+            'redoc_gdex' => 'cnGdex',
+            'Submit' => 'Track',
         ];
     }
 
     public function startCrawl($result)
     {
         $crawler = new Crawler($result['body']);
-        $crawlerResult = $crawler->filter('#tbDetails > tbody > tr:not(.danger)')->each(
-            function (Crawler $node, $i) {
-                $result = $node->filter('td')->each(
-                    function (Crawler $node, $i) {
-                        return trim(preg_replace('/\s+/', ' ', $node->text()));
-                    }
-                );
+
+        $crawlerResult = $crawler->filter('#products tr:not(:first-child)')->each(function (Crawler $node, $i) {
+            if (strtolower($node->text()) != 'invalid cn') {
+                $result = $node->filter('td:not(:first-child)')->each(function (Crawler $node, $i) {
+                    return trim(preg_replace('/\s+/', ' ', $node->text()));
+                });
+
                 $data = [];
                 foreach ($result as $key => $item) {
                     if ($key == 0) {
-                        $parcel = Carbon::createFromFormat("d M Y, h:i:s a", $item);
+                        $parcel = Carbon::createFromFormat("d/m/Y H:i:s", $item);
                         $data['date'] = $parcel->toDateTimeString();
                         $data['timestamp'] = $parcel->timestamp;
                     }
@@ -52,8 +52,15 @@ class PosLaju extends BaseTracker
                 }
 
                 return $data;
+            } else {
+                return null;
             }
-        );
+        });
+
+        //reset if not found. weird dom output
+        if ($crawlerResult[0] == null) {
+            $crawlerResult = [];
+        }
 
         return [
             'code' => $result['status_code'],

@@ -8,7 +8,8 @@ namespace Afiqiqmal\ParcelTrack;
 
 use afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
 
-class ParcelTrack extends BaseParcelTrack {
+class ParcelTrack extends BaseParcelTrack
+{
 
     protected $refNum = [];
 
@@ -22,7 +23,8 @@ class ParcelTrack extends BaseParcelTrack {
     {
         if ($this->source) {
             $request = $this->source->setTrackingNumber($this->refNum);
-            return $this->source->startCrawl($this->execute($request));
+            $result = $this->execute($request);
+            return $this->source->startCrawl($result);
         }
 
         return die_response("Source Must Be set first ex: ->postLaju()");

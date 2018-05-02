@@ -8,7 +8,7 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-$response = parcel_track()->postLaju()->setTrackingNumber("ER157080065MY")->fetch();
+$response = parcel_track()->gdex()->setTrackingNumber("4941410530")->fetch();
 
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);

@@ -8,7 +8,6 @@
 
 namespace afiqiqmal\ParcelTrack\Tracker;
 
-
 class BaseTracker
 {
     protected $url = null;
@@ -19,29 +18,31 @@ class BaseTracker
         return $this->url;
     }
 
-    public function getSourceName() {
+    public function getSourceName() 
+    {
         return $this->source;
     }
 
     protected function distinguishProcess($process)
     {
-        if (stripos($process, 'counter') !== false) {
+        $process = strtolower($process);
+        if (preg_match('(counter|outbound)', $process)) {
             return "item_received";
         }
 
-        if (stripos($process, 'dispatch') !== false) {
+        if (preg_match('(dispatch|picked up)', $process)) {
             return "dispatch";
         }
 
-        if (stripos($process, 'facility') !== false) {
+        if (preg_match('(facility|transit|inbound)', $process)) {
             return "arrived_facility";
         }
 
-        if (stripos($process, 'delivery') !== false) {
+        if (preg_match('(delivery)', $process)) {
             return "out_for_delivery";
         }
 
-        if (stripos($process, 'delivered') !== false) {
+        if (preg_match('(delivered)', $process)) {
             return "delivered";
         }
 

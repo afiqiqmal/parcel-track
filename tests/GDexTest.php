@@ -8,27 +8,27 @@ use PHPUnit\Framework\TestCase;
 * RequestTest.php
 * to test function in Request class
 */
-class RequestTest extends TestCase
+class GDexTest extends TestCase
 {
-    function testPostLajuSuccess()
+    function testGDexSuccess()
     {
-        $result = parcel_track()->postLaju()->setTrackingNumber("ER157080065MY")->fetch();
+        $result = parcel_track()->gdex()->setTrackingNumber("4941410530")->fetch();
 
         $this->assertTrue(true);
         $this->assertEquals(200, $result['code']);
     }
 
-    function testPostLajuEmptySuccess()
+    function testGDexEmptySuccess()
     {
-        $result = parcel_track()->postLaju()->setTrackingNumber("")->fetch();
+        $result = parcel_track()->gdex()->setTrackingNumber("")->fetch();
 
         $this->assertTrue(count($result['tracker']) == 0);
         $this->assertEquals(200, $result['code']);
     }
 
-    function testPostLajuFailed()
+    function testGDexFailed()
     {
-        $result = parcel_track()->setTrackingNumber("ER157080065MY")->fetch();
+        $result = parcel_track()->setTrackingNumber("4941410530")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
     }

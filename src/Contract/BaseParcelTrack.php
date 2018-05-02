@@ -8,6 +8,7 @@
 
 namespace afiqiqmal\ParcelTrack\Contract;
 
+use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 
 class BaseParcelTrack
@@ -17,6 +18,12 @@ class BaseParcelTrack
     public function postLaju()
     {
         $this->source = new PosLaju();
+        return $this;
+    }
+
+    public function gdex()
+    {
+        $this->source = new Gdex();
         return $this;
     }
 
@@ -32,6 +39,8 @@ class BaseParcelTrack
         if (isset($result['body'])) {
             return $result;
         }
+
+        return null;
     }
 
     protected function createFooterJson()

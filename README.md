@@ -5,7 +5,7 @@
 
 It is simple wrapper class written in php to fetch posts from certain Malaysian Parcel Data
 
-* Currently just only POSTLAJU
+* Currently just only POSTLAJU, GDEX
 
 Tested in PHP 7.1
 
@@ -48,12 +48,17 @@ $data = parcel_track()
         <th>Description</th>
     </tr>
     <tr>
-        <td>postLaju</td>
-        <td><code></code></td>
-        <td>Currently : <code>postLaju()</code></td>
+        <td>postLaju()</td>
+        <td></td>
+        <td>Post Laju Courier</td>
     </tr>
     <tr>
-        <td>setTrackingNumber</td>
+        <td>gdex()</td>
+        <td></td>
+        <td>GD Express Courier</td>
+    </tr>
+    <tr>
+        <td>setTrackingNumber($refNumber)</td>
         <td><code>String</code></td>
         <td>Enter the tracking number</td>
     </tr>
