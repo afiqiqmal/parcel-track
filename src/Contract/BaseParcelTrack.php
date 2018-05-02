@@ -21,7 +21,7 @@ class BaseParcelTrack
         return $this;
     }
 
-    public function gdex()
+    public function gdExpress()
     {
         $this->source = new Gdex();
         return $this;

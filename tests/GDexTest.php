@@ -12,7 +12,7 @@ class GDexTest extends TestCase
 {
     function testGDexSuccess()
     {
-        $result = parcel_track()->gdex()->setTrackingNumber("4941410530")->fetch();
+        $result = parcel_track()->gdExpress()->setTrackingNumber("4941410530")->fetch();
 
         $this->assertTrue(true);
         $this->assertEquals(200, $result['code']);
@@ -20,7 +20,7 @@ class GDexTest extends TestCase
 
     function testGDexEmptySuccess()
     {
-        $result = parcel_track()->gdex()->setTrackingNumber("")->fetch();
+        $result = parcel_track()->gdExpress()->setTrackingNumber("")->fetch();
 
         $this->assertTrue(count($result['tracker']) == 0);
         $this->assertEquals(200, $result['code']);
