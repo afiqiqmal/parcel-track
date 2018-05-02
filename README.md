@@ -1,9 +1,9 @@
-# Get Parcel Feed Tracker
+# Parcel Tracker
 
 [![Build Status](https://travis-ci.org/afiqiqmal/parcel-track.svg?branch=master)](https://travis-ci.org/afiqiqmal/parcel-track)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
 
-It is simple wrapper class written in php to fetch posts from certain Malaysian Parcel Data
+Simple Parcel Tracker Packagist for Local Parcel Courier. Basically it just crawl the courier website. Need time to time monitor changes before failure happend.
 
 * Currently just only POSTLAJU, GDEX, ABXExpress
 
