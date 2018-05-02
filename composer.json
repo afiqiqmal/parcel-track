@@ -19,7 +19,6 @@
         "nesbot/carbon": "^1.27"
     },
     "require-dev": {
-        "vlucas/phpdotenv": "~2.2",
         "phpunit/phpunit": "~5.7"
     },
     "autoload": {

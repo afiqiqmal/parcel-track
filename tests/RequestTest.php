@@ -12,21 +12,6 @@ use Xmhafiz\FbFeed\Request;
 */
 class RequestTest extends TestCase
 {
-	protected $fbPageName;
-	protected $fbAppId;
-	protected $fbSecretKey;
-
-	protected function setUp() 
-	{
-		try {
-			$env = new Dotenv(__DIR__ . '/../');
-			$env->load();
-		}
-		catch (\Exception $e){
-			echo $e->getMessage();
-		}
-	}
-
     function testPostLajuSuccess()
     {
         $result = parcel_track()->postLaju()->setTrackingNumber("ER157080065MY")->fetch();
