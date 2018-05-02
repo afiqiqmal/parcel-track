@@ -8,6 +8,7 @@
 
 namespace afiqiqmal\ParcelTrack\Contract;
 
+use afiqiqmal\ParcelTrack\Tracker\Abx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 
@@ -24,6 +25,12 @@ class BaseParcelTrack
     public function gdExpress()
     {
         $this->source = new Gdex();
+        return $this;
+    }
+
+    public function abxExpress()
+    {
+        $this->source = new Abx();
         return $this;
     }
 
