@@ -7,10 +7,7 @@ It is simple wrapper class written in php to fetch posts from certain Malaysian 
 
 * Currently just only POSTLAJU
 
-Tested in PHP 5.6, 7.0 and 7.1
-
-## Requirement
-- PHP 5.6+
+Tested in PHP 7.1
 
 ## Installation
 
