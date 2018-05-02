@@ -39,6 +39,14 @@ $data = parcel_track()
 	->fetch();
 ```
 
+#### Sample for GDex
+```php
+$data = parcel_track()
+	->gdex()
+	->setTrackingNumber("ER157080065MY")
+	->fetch();
+```
+
 
 ### Method
 <table border="1">
