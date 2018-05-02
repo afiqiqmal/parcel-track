@@ -27,7 +27,7 @@ class PosLaju extends BaseTracker
 
     public function startCrawl($result)
     {
-        echo $result;
+        var_dump(json_encode($result));
         $crawler = new Crawler($result['body']);
         $crawlerResult = $crawler->filter('#tbDetails > tbody > tr:not(.danger)')->each(function (Crawler $node, $i) {
             $result = $node->filter('td')->each(function (Crawler $node, $i) {
