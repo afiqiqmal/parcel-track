@@ -46,7 +46,11 @@ class BaseTracker
     {
         $tracker['tracking_number'] = $this->getTrackingNumber();
         $tracker['provider'] = $this->getCode();
-        $tracker['timeline'] = $reverse ? array_reverse($data) : $data;
+        $tracker['delivered'] = (array_filter($data, function($item) {
+            return isset($item['type']) && $item['type'] == 'delivered';
+        })) != null;
+        $tracker['checkpoints'] = $reverse ? array_reverse($data) : $data;
+
         return [
             'code' => $result['status_code'],
             'error' => false,

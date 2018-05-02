@@ -10,7 +10,6 @@ use afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
 
 class ParcelTrack extends BaseParcelTrack
 {
-
     protected $refNum = [];
 
     public function setTrackingNumber($refNum)
