@@ -16,6 +16,7 @@ class BaseTracker
     protected $code = null;
     protected $source = "Parcel Tracker";
     protected $tracking_number = null;
+    protected $method = "GET";
 
     public function getUrl()
     {
@@ -35,6 +36,11 @@ class BaseTracker
     public function getTrackingNumber()
     {
         return $this->tracking_number;
+    }
+
+    public function getMethodCall()
+    {
+        return $this->method;
     }
 
     public function setTrackingNumber($refNum)

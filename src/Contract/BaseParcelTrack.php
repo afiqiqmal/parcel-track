@@ -37,7 +37,7 @@ class BaseParcelTrack
     protected function execute($requestBody)
     {
         $result = api_request()->baseUrl($this->source->getUrl())
-            ->postMethod()
+            ->setMethod($this->source->getMethodCall())
             ->appendToResult($this->createFooterJson())
             ->setRequestBody($requestBody)
             ->getRaw()
