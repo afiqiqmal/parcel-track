@@ -43,7 +43,7 @@ $data = parcel_track()
 ```php
 $data = parcel_track()
 	->gdex()
-	->setTrackingNumber("ER157080065MY")
+	->setTrackingNumber("4941410530")
 	->fetch();
 ```
 
@@ -51,7 +51,7 @@ $data = parcel_track()
 ```php
 $data = parcel_track()
 	->abxExpress()
-	->setTrackingNumber("ER157080065MY")
+	->setTrackingNumber("EZP843055940197")
 	->fetch();
 ```
 
