@@ -3,7 +3,7 @@ php:
   - '7.1'
 
 before_script:
-  - composer install --install-platform-reqs
+  - composer install --ignore-platform-reqs
 
 script:
     - phpunit --coverage-clover=coverage.xml
