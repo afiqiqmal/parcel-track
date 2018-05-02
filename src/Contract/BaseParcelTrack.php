@@ -22,6 +22,7 @@ class BaseParcelTrack
 
     protected function execute($requestBody)
     {
+        echo $this->source->getUrl();
         $result = api_request()->baseUrl($this->source->getUrl())
             ->postMethod()
             ->appendToResult($this->createFooterJson())
@@ -29,6 +30,7 @@ class BaseParcelTrack
             ->getRaw()
             ->fetch();
 
+        echo json_encode($result);
         if (isset($result['body'])) {
             return $result;
         }
