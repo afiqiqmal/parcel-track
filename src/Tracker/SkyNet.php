@@ -22,9 +22,7 @@ class SkyNet extends BaseTracker
     {
         parent::setTrackingNumber($refNum);
         return [
-            'hawbNoList' => 238216506684,
-            'x' => 34,
-            'y' => 6,
+            'hawbNoList' => $refNum,
         ];
     }
 
