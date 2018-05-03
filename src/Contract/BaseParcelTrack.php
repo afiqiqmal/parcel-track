@@ -9,6 +9,7 @@
 namespace afiqiqmal\ParcelTrack\Contract;
 
 use afiqiqmal\ParcelTrack\Tracker\Abx;
+use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 
@@ -34,14 +35,26 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function dhlExpress()
+    {
+        $this->source = new DHL();
+        return $this;
+    }
+
     protected function execute($requestBody)
     {
-        $result = api_request()->baseUrl($this->source->getUrl())
+        $result = api_request()
+            ->baseUrl($this->source->getUrl())
             ->setMethod($this->source->getMethodCall())
+            ->setHeader($this->source->getHeader())
             ->appendToResult($this->createFooterJson())
-            ->setRequestBody($requestBody)
-            ->getRaw()
-            ->fetch();
+            ->setRequestBody($requestBody);
+
+        if ($this->source->rawOutput()) {
+            $result = $result->getRaw()->fetch();
+        } else {
+            $result = $result->fetch();
+        }
 
         if (isset($result['body'])) {
             return $result;

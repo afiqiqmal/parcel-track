@@ -8,6 +8,7 @@ define('METHOD_POST', 'POST');
 define('METHOD_GET', 'GET');
 define('METHOD_PATCH', 'PATCH');
 define('METHOD_DELETE', 'DELETE');
+define('USER_AGENT', 'testing/1.0');
 
 if (! function_exists('parcel_track')) {
 
@@ -30,6 +31,13 @@ if (! function_exists('parcel_utils')) {
     function parcel_utils()
     {
         return new ParcelUtils();
+    }
+}
+
+if (! function_exists('trim_spaces')) {
+    function trim_spaces($text)
+    {
+        return trim(preg_replace('/\s+/', ' ', $text));
     }
 }
 

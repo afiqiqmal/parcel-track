@@ -43,12 +43,22 @@ class BaseTracker
         return $this->method;
     }
 
+    public function getHeader()
+    {
+        return null;
+    }
+
+    public function rawOutput()
+    {
+        return true;
+    }
+
     public function setTrackingNumber($refNum)
     {
         $this->tracking_number = $refNum;
     }
 
-    protected function buildResponse($result, $data, $reverse = true)
+    protected function buildResponse($result, $data, $status_code = 200, $reverse = true)
     {
         $tracker['tracking_number'] = $this->getTrackingNumber();
         $tracker['provider'] = $this->getCode();
@@ -66,8 +76,12 @@ class BaseTracker
         ];
     }
 
-    protected function distinguishProcess($process)
+    protected function distinguishProcess($process, $isFirstPosition = false)
     {
+        if ($isFirstPosition) {
+            return "item_received";
+        }
+
         $process = strtolower($process);
         if (preg_match('(counter|outbound|transhipment)', $process)) {
             return "item_received";
