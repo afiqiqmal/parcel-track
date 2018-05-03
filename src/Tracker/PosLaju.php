@@ -16,7 +16,7 @@ class PosLaju extends BaseTracker
     protected $url = "https://poslaju.com.my/track-trace-v2/";
     protected $source = "Post Laju";
     protected $code = "poslaju";
-    protected $method = "POST";
+    protected $method = METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {
