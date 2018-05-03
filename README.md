@@ -7,7 +7,7 @@ Simple Parcel Tracker Packagist for Local Parcel Courier. Basically it just craw
 
 Pftt.. I just dont know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all test passed =)
 
-* Currently available
+Currently available
 1. [Post Laju](https://www.poslaju.com.my/)
 2. [GDEX](http://www.gdexpress.com/malaysia/home/)
 3. [ABX Express](http://www.abxexpress.com.my/)
@@ -112,62 +112,54 @@ You should getting data similarly like below:
 {
     "code": 200,
     "error": false,
-    "tracker": [
-        {
-            "date": "2018-02-05 16:24:20",
-            "timestamp": 1517847860,
-            "process": "Item posted over the counter",
-            "type": "item_received",
-            "event": "Pos Laju Temerloh"
-        },
-        {
-            "date": "2018-02-05 22:01:57",
-            "timestamp": 1517868117,
-            "process": "Item dispatched out",
-            "type": "dispatch",
-            "event": "Pos Laju Temerloh"
-        },
-        {
-            "date": "2018-02-06 03:44:45",
-            "timestamp": 1517888685,
-            "process": "Consignment dispatch out from Transit Office",
-            "type": "dispatch",
-            "event": "Pos Laju Transit Office"
-        },
-        {
-            "date": "2018-02-07 12:20:25",
-            "timestamp": 1518006025,
-            "process": "Arrive at delivery facility at",
-            "type": "arrived_facility",
-            "event": "Pos Laju Keningau"
-        },
-        {
-            "date": "2018-02-08 07:44:49",
-            "timestamp": 1518075889,
-            "process": "Arrive at delivery facility at",
-            "type": "arrived_facility",
-            "event": "Pos Laju Keningau"
-        },
-        {
-            "date": "2018-02-08 07:51:36",
-            "timestamp": 1518076296,
-            "process": "Item out for delivery",
-            "type": "out_for_delivery",
-            "event": "Pos Laju Keningau"
-        },
-        {
-            "date": "2018-02-08 14:01:24",
-            "timestamp": 1518098484,
-            "process": "Item delivered to HASMIN",
-            "type": "delivered",
-            "event": "Pos Laju Keningau"
-        }
-    ],
+    "tracker": {
+        "tracking_number": "4941410530",
+        "provider": "gdex",
+        "delivered": true,
+        "checkpoints": [
+            {
+                "date": "2016-11-30 17:41:10",
+                "timestamp": 1480527670,
+                "process": "Outbound from KBR station",
+                "type": "item_received",
+                "event": "Kota Bharu"
+            },
+            {
+                "date": "2016-11-30 17:47:00",
+                "timestamp": 1480528020,
+                "process": "Picked up by courier",
+                "type": "dispatch",
+                "event": "Kota Bharu"
+            },
+            {
+                "date": "2016-12-01 03:25:11",
+                "timestamp": 1480562711,
+                "process": "In transit",
+                "type": "facility_process",
+                "event": "Petaling Jaya"
+            },
+            {
+                "date": "2016-12-01 10:00:16",
+                "timestamp": 1480586416,
+                "process": "Inbound to JHB station",
+                "type": "facility_process",
+                "event": "Johor Bharu"
+            },
+            {
+                "date": "2016-12-02 10:10:00",
+                "timestamp": 1480673400,
+                "process": "Delivered",
+                "type": "delivered",
+                "event": "Sungai Tiram"
+            }
+        ]
+    },
+    "generated_at": "2018-05-03 02:07:20",
     "footer": {
-        "source": "Post Laju",
+        "source": "GD Express Sdn Bhd",
         "developer": {
             "name": "Hafiq",
-            "homepage": "https:\/\/github.com\/afiqiqmal"
+            "homepage": "https://github.com/afiqiqmal"
         }
     }
 }
