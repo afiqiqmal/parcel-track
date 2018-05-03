@@ -35,7 +35,7 @@ class Gdex extends BaseTracker
         $crawlerResult = $crawler->filter('#products tr:not(:first-child)')->each(function (Crawler $node, $i) {
             if (strtolower($node->text()) != 'invalid cn') {
                 $result = $node->filter('td:not(:first-child)')->each(function (Crawler $node, $i) {
-                    return trim(preg_replace('/\s+/', ' ', $node->text()));
+                    return trim_spaces($node->text());
                 });
 
                 $data = [];

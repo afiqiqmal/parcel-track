@@ -3,18 +3,22 @@
 [![Build Status](https://travis-ci.org/afiqiqmal/parcel-track.svg?branch=master)](https://travis-ci.org/afiqiqmal/parcel-track)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
 
-Simple Parcel Tracker Packagist for Local Parcel Courier. Basically it just crawl the courier website. Need time to time monitor changes before failure happend.
+Simple Parcel Tracker Packagist for Local Parcel Courier. 
+Basically it just crawl the courier website. Need time to time monitor changes before failure happen.
 
-Pftt.. I just dont know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all test passed =)
+Pftt.. I just don't know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all Test Unit <font style="color: green">Passed</font> =)
 
-Currently available
+<br>
+
+BTW, Currently available (Successfully Scraped)
 1. [Post Laju](https://www.poslaju.com.my/)
 2. [GDEX](http://www.gdexpress.com/malaysia/home/)
 3. [ABX Express](http://www.abxexpress.com.my/)
 4. [DHL Express](https://www.logistics.dhl/my-en/home.html)
 5. [SkyNet Express](http://www.skynet.com.my/)
 
-Tested in PHP 7.1
+
+Tested in PHP 7.1 Only
 
 ## Installation
 
@@ -173,6 +177,9 @@ You should getting data similarly like below:
 
 ## Todo
 - Struggling for other Parcel Data
+
+## Issue
+- If Issue happen like the api always return empty [], just let me know =)
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)

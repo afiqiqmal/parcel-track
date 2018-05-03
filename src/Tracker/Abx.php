@@ -34,7 +34,7 @@ class Abx extends BaseTracker
             ->filter('tr:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3))')
             ->each(function (Crawler $node, $i) {
                 $result =  $node->filter('td')->each(function (Crawler $node, $i) {
-                    return trim(preg_replace('/\s+/', ' ', $node->text()));
+                    return trim_spaces($node->text());
                 });
 
                 $data = [];

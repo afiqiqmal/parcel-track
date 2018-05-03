@@ -56,6 +56,12 @@ class BaseTracker
     public function setTrackingNumber($refNum)
     {
         $this->tracking_number = $refNum;
+        return null;
+    }
+
+    public function startCrawl($result)
+    {
+        return [];
     }
 
     protected function buildResponse($result, $data, $status_code = 200, $reverse = true)

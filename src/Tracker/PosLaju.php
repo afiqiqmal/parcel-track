@@ -31,9 +31,10 @@ class PosLaju extends BaseTracker
     public function startCrawl($result)
     {
         $crawler = new Crawler($result['body']);
-        $crawlerResult = $crawler->filter('#tbDetails > tbody > tr:not(.danger)')->each(function (Crawler $node, $i) {
+        $crawlerResult = $crawler->filter('#tbDetails > tbody > tr:not(.danger)')
+            ->each(function (Crawler $node, $i) {
             $result = $node->filter('td')->each(function (Crawler $node, $i) {
-                return trim(preg_replace('/\s+/', ' ', $node->text()));
+                return trim_spaces($node->text());
             });
             $data = [];
             foreach ($result as $key => $item) {

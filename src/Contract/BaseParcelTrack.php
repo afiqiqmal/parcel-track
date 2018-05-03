@@ -9,6 +9,7 @@
 namespace afiqiqmal\ParcelTrack\Contract;
 
 use afiqiqmal\ParcelTrack\Tracker\Abx;
+use afiqiqmal\ParcelTrack\Tracker\BaseTracker;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
@@ -16,6 +17,7 @@ use afiqiqmal\ParcelTrack\Tracker\SkyNet;
 
 class BaseParcelTrack
 {
+    /** @var BaseTracker  **/
     protected $source = null;
 
     public function postLaju()
@@ -48,7 +50,12 @@ class BaseParcelTrack
         return $this;
     }
 
-    protected function execute($requestBody)
+    /**
+     * Fetch content from the url using guzzle
+     * @param array $requestBody
+     * @return array|null
+     */
+    protected function execute(array $requestBody)
     {
         $result = api_request()
             ->baseUrl($this->source->getUrl())
@@ -70,6 +77,10 @@ class BaseParcelTrack
         return null;
     }
 
+    /**
+     * Append Info at the end of content result
+     * @return array
+     */
     protected function createFooterJson()
     {
         return [

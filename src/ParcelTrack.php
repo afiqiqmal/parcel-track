@@ -10,18 +10,23 @@ use afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
 
 class ParcelTrack extends BaseParcelTrack
 {
-    protected $refNum = [];
+    protected $trackingCode = [];
 
+    /**
+     * set tracking number
+     * @param $refNum
+     * @return $this
+     */
     public function setTrackingNumber($refNum)
     {
-        $this->refNum = $refNum;
+        $this->trackingCode = $refNum;
         return $this;
     }
 
     public function fetch()
     {
         if ($this->source) {
-            $request = $this->source->setTrackingNumber($this->refNum);
+            $request = $this->source->setTrackingNumber($this->trackingCode);
             $result = $this->execute($request);
             return $this->source->startCrawl($result);
         }

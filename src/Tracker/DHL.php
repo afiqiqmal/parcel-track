@@ -9,7 +9,6 @@
 namespace afiqiqmal\ParcelTrack\Tracker;
 
 use Carbon\Carbon;
-use Symfony\Component\DomCrawler\Crawler;
 
 class DHL extends BaseTracker
 {
