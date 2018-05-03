@@ -8,8 +8,8 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-//$response = parcel_track()->gdExpress()->setTrackingNumber("4941410530")->fetch();
-$response = parcel_track()->abxExpress()->setTrackingNumber("4941410530")->fetch();
+$response = parcel_track()->gdExpress()->setTrackingNumber("4941410530")->fetch();
+//$response = parcel_track()->abxExpress()->setTrackingNumber("4941410530")->fetch();
 //$response = parcel_track()->dhlExpress()->setTrackingNumber("5176011131")->fetch();
 
 header('Content-type: application/json');

@@ -61,7 +61,7 @@ class Gdex extends BaseTracker
         });
 
         //reset if not found. weird dom output
-        if ($crawlerResult[0] == null) {
+        if ($crawlerResult[0] == []) {
             $crawlerResult = [];
         }
 
