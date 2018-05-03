@@ -7,7 +7,11 @@ Simple Parcel Tracker Packagist for Local Parcel Courier. Basically it just craw
 
 Pftt.. I just dont know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all test passed =)
 
-* Currently just only POSTLAJU, GDEX, ABXExpress
+* Currently available
+1. [Post Laju](https://www.poslaju.com.my/)
+2. [GDEX](http://www.gdexpress.com/malaysia/home/)
+3. [ABX Express](http://www.abxexpress.com.my/)
+4. [DHL Express](https://www.logistics.dhl/my-en/home.html)
 
 Tested in PHP 7.1
 
@@ -57,9 +61,17 @@ $data = parcel_track()
 	->fetch();
 ```
 
+#### Sample for DHL Express
+```php
+$data = parcel_track()
+	->dhlExpress()
+	->setTrackingNumber("5176011131")
+	->fetch();
+```
+
 
 ### Method
-<table border="1">
+<table border="1" width="100%">
     <tr>
         <th>Method</th>
         <th>Param</th>
@@ -72,6 +84,11 @@ $data = parcel_track()
     </tr>
     <tr>
         <td>abxExpress()</td>
+        <td></td>
+        <td>Post Laju Courier</td>
+    </tr>
+    <tr>
+        <td>dhlExpress()</td>
         <td></td>
         <td>Post Laju Courier</td>
     </tr>
