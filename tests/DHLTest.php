@@ -22,7 +22,7 @@ class DHLTest extends TestCase
     {
         $result = parcel_track()->dhlExpress()->setTrackingNumber("5176011131AAAA")->fetch();
 
-        $this->assertTrue(count($result['tracker']) == 0);
+        $this->assertTrue(count($result['tracker']['checkpoints']) == 0);
         $this->assertEquals(200, $result['code']);
     }
 
