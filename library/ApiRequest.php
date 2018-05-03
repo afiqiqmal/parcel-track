@@ -88,14 +88,14 @@ class ApiRequest
         return $this;
     }
 
-    function fetch($requestUrl = null, $params = [], $method = null, $header = null)
+    function fetch($requestUrl = null, $requestBody = [], $method = null, $header = null)
     {
         if ($requestUrl) {
             $this->requestUrl = $requestUrl;
         }
 
-        if (count($params) > 0) {
-            $this->requestBody = $params;
+        if (count($requestBody) > 0) {
+            $this->requestBody = $requestBody;
         }
 
         if ($method) {
