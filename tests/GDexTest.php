@@ -22,7 +22,7 @@ class GDexTest extends TestCase
     {
         $result = parcel_track()->gdExpress()->setTrackingNumber("")->fetch();
 
-        $this->assertTrue(count($result['tracker']) == 0);
+        $this->assertTrue(count($result['tracker']['checkpoints']) == 0);
         $this->assertEquals(200, $result['code']);
     }
 
