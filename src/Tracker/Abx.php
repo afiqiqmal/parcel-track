@@ -16,7 +16,7 @@ class Abx extends BaseTracker
     protected $url = "http://www.abxexpress.com.my/track.asp?vsearch=True";
     protected $source = "ABX Express Sdn Bhd";
     protected $code = "abx";
-    protected $method = "POST";
+    protected $method = METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {
