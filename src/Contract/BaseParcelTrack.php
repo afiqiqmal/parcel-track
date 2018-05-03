@@ -12,6 +12,7 @@ use afiqiqmal\ParcelTrack\Tracker\Abx;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
+use afiqiqmal\ParcelTrack\Tracker\SkyNet;
 
 class BaseParcelTrack
 {
@@ -38,6 +39,12 @@ class BaseParcelTrack
     public function dhlExpress()
     {
         $this->source = new DHL();
+        return $this;
+    }
+
+    public function skynet()
+    {
+        $this->source = new SkyNet();
         return $this;
     }
 

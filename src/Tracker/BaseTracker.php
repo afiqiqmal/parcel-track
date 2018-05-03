@@ -16,7 +16,7 @@ class BaseTracker
     protected $code = null;
     protected $source = "Parcel Tracker";
     protected $tracking_number = null;
-    protected $method = "GET";
+    protected $method = METHOD_GET;
 
     public function getUrl()
     {
@@ -83,7 +83,7 @@ class BaseTracker
         }
 
         $process = strtolower($process);
-        if (preg_match('(counter|outbound|transhipment)', $process)) {
+        if (preg_match('(counter|outbound|transhipment|collection)', $process)) {
             return "item_received";
         }
 

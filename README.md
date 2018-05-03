@@ -12,6 +12,7 @@ Currently available
 2. [GDEX](http://www.gdexpress.com/malaysia/home/)
 3. [ABX Express](http://www.abxexpress.com.my/)
 4. [DHL Express](https://www.logistics.dhl/my-en/home.html)
+5. [SkyNet Express](http://www.skynet.com.my/)
 
 Tested in PHP 7.1
 
@@ -90,12 +91,17 @@ $data = parcel_track()
     <tr>
         <td>dhlExpress()</td>
         <td></td>
-        <td>Post Laju Courier</td>
+        <td>DHL Express Courier</td>
     </tr>
     <tr>
         <td>gdex()</td>
         <td></td>
         <td>GD Express Courier</td>
+    </tr>
+    <tr>
+        <td>skynet()</td>
+        <td></td>
+        <td>SkyNet Express Courier</td>
     </tr>
     <tr>
         <td>setTrackingNumber($refNumber)</td>
