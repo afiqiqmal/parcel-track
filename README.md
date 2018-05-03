@@ -1,12 +1,13 @@
 # Parcel Tracker
-
+<!---
 [![Build Status](https://travis-ci.org/afiqiqmal/parcel-track.svg?branch=master)](https://travis-ci.org/afiqiqmal/parcel-track)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
+-->
 
 Simple Parcel Tracker Packagist for Local Parcel Courier. 
 Basically it just crawl the courier website. Need time to time monitor changes before failure happen.
 
-Pftt.. I just don't know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all Test Unit <font style="color: green">Passed</font> =)
+Pftt.. I just don't know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all Test Unit <font style="color: green">Passed</font> . I disabled it first because always failing on travis-ci.org =)
 
 <br>
 
