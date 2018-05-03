@@ -16,7 +16,7 @@ class Gdex extends BaseTracker
     protected $url = "http://web2.gdexpress.com/official/iframe/etracking_v2.php";
     protected $source = "GD Express Sdn Bhd";
     protected $code = "gdex";
-    protected $method = "POST";
+    protected $method = METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {
