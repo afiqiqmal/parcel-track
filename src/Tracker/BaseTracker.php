@@ -74,8 +74,8 @@ class BaseTracker
         $tracker['checkpoints'] = $reverse ? array_reverse($data) : $data;
 
         return [
-            'code' => $result['status_code'],
-            'error' => false,
+            'code' => $result['status_code'] ? $result['status_code'] : 400,
+            'error' => $result['status_code'] && $result['status_code'] >= 300 ? true : false,
             'tracker' => $tracker,
             'generated_at' => Carbon::now()->toDateTimeString(),
             'footer' => $result['footer']
@@ -89,11 +89,11 @@ class BaseTracker
         }
 
         $process = strtolower($process);
-        if (preg_match('(counter|outbound|transhipment|collection)', $process)) {
+        if (preg_match('(counter|outbound|transhipment|collection|collected)', $process)) {
             return "item_received";
         }
 
-        if (preg_match('(dispatch|picked up)', $process)) {
+        if (preg_match('(dispatch|picked up|depart)', $process)) {
             return "dispatch";
         }
 
@@ -105,7 +105,7 @@ class BaseTracker
             return "facility_process";
         }
 
-        if (preg_match('(delivery)', $process)) {
+        if (preg_match('(delivery|with courier)', $process)) {
             return "out_for_delivery";
         }
 

@@ -10,6 +10,7 @@ namespace afiqiqmal\ParcelTrack\Contract;
 
 use afiqiqmal\ParcelTrack\Tracker\Abx;
 use afiqiqmal\ParcelTrack\Tracker\BaseTracker;
+use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
@@ -50,12 +51,18 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function cityLink()
+    {
+        $this->source = new CityLink();
+        return $this;
+    }
+
     /**
      * Fetch content from the url using guzzle
      * @param array $requestBody
      * @return array|null
      */
-    protected function execute(array $requestBody)
+    protected function execute($requestBody)
     {
         $result = api_request()
             ->baseUrl($this->source->getUrl())
