@@ -12,6 +12,7 @@ use afiqiqmal\ParcelTrack\Tracker\Abx;
 use afiqiqmal\ParcelTrack\Tracker\BaseTracker;
 use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
+use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
@@ -54,6 +55,12 @@ class BaseParcelTrack
     public function cityLink()
     {
         $this->source = new CityLink();
+        return $this;
+    }
+
+    public function fedEx()
+    {
+        $this->source = new FedEx();
         return $this;
     }
 
