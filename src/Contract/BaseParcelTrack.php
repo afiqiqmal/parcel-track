@@ -9,6 +9,7 @@
 namespace afiqiqmal\ParcelTrack\Contract;
 
 use afiqiqmal\ParcelTrack\Tracker\Abx;
+use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
@@ -45,6 +46,12 @@ class BaseParcelTrack
     public function skynet()
     {
         $this->source = new SkyNet();
+        return $this;
+    }
+
+    public function cityLink()
+    {
+        $this->source = new CityLink();
         return $this;
     }
 

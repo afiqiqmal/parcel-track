@@ -13,6 +13,7 @@ Currently available
 3. [ABX Express](http://www.abxexpress.com.my/)
 4. [DHL Express](https://www.logistics.dhl/my-en/home.html)
 5. [SkyNet Express](http://www.skynet.com.my/)
+5. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
 
 Tested in PHP 7.1
 
@@ -102,6 +103,11 @@ $data = parcel_track()
         <td>skynet()</td>
         <td></td>
         <td>SkyNet Express Courier</td>
+    </tr>
+    <tr>
+        <td>cityLink()</td>
+        <td></td>
+        <td>City Link Express Courier</td>
     </tr>
     <tr>
         <td>setTrackingNumber($refNumber)</td>
