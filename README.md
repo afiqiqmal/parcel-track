@@ -194,5 +194,8 @@ You should getting data similarly like below:
 ## Issue
 - If Issue happen like the api always return empty [], just let me know =)
 
+## ChangeLog
+- See changelog.md
+
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)

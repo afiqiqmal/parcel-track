@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6
+Add FedEx courier
+
+- Add fedex courier
+
 ## 1.5
 Add Citylink courier
 
