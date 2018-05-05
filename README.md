@@ -19,6 +19,7 @@ BTW, Currently available (Successfully Scraped)
 5. [SkyNet Express](http://www.skynet.com.my/)
 6. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
 7. [FedEx Express](https://www.fedex.com/my/)
+8. [LEL Express](http://www.lex.com.my/)
 
 
 Tested in PHP 7.1 Only
