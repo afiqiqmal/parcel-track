@@ -121,6 +121,11 @@ $data = parcel_track()
         <td>FedEx Express Courier</td>
     </tr>
     <tr>
+        <td>lelExpress()</td>
+        <td></td>
+        <td>Lazada E-Logistic Courier</td>
+    </tr>
+    <tr>
         <td>setTrackingNumber($refNumber)</td>
         <td><code>String</code></td>
         <td>Enter the tracking number</td>

@@ -14,6 +14,7 @@ use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
+use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
 
@@ -64,6 +65,12 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function lelExpress()
+    {
+        $this->source = new LELExpress();
+        return $this;
+    }
+
     /**
      * Fetch content from the url using guzzle
      * @param array $requestBody
@@ -100,6 +107,7 @@ class BaseParcelTrack
         return [
             'footer' => [
                 'source' => $this->source->getSourceName(),
+                'homepage' => $this->source->getUrl(),
                 'developer' => [
                     "name" => "Hafiq",
                     "homepage" => "https://github.com/afiqiqmal"

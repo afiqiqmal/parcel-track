@@ -110,20 +110,19 @@ class ApiRequest
             throw new \RuntimeException('Base URL need to be set!!');
         }
 
-        if (substr($this->baseUrl, -1) != '/') {
-            $this->baseUrl = $this->baseUrl."/";
-        }
+//        if (substr($this->baseUrl, -1) != '/') {
+//            $this->baseUrl = $this->baseUrl."/";
+//        }
 
         if ($this->requestUrl && substr($this->requestUrl, -1) == "/") {
             $this->requestUrl = ltrim($this->requestUrl, "/");
         }
-
-        if (!$this->requestUrl) {
-            $this->baseUrl = rtrim($this->baseUrl, '/');
-        }
+//
+//        if (!$this->requestUrl) {
+//            $this->baseUrl = rtrim($this->baseUrl, '/');
+//        }
 
         $url = $this->baseUrl . $this->requestUrl;
-
         try {
             $client = new Client();
             switch ($this->method) {
