@@ -78,7 +78,7 @@ class BaseParcelTrack
      */
     protected function execute($requestBody)
     {
-        $result = api_request()
+        $result = parcel_request()
             ->baseUrl($this->source->getUrl())
             ->setMethod($this->source->getMethodCall())
             ->setHeader($this->source->getHeader())

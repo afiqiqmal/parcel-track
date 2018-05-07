@@ -16,7 +16,7 @@ class CityLink extends BaseTracker
     protected $url = "http://www.citylinkexpress.com/MY/ShipmentTrack.aspx";
     protected $source = "City Link Express";
     protected $code = "citylink";
-    protected $method = METHOD_POST;
+    protected $method = PARCEL_METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {

@@ -15,7 +15,7 @@ class FedEx extends BaseTracker
     protected $url = "https://www.fedex.com/trackingCal/track";
     protected $source = "FedEx Express";
     protected $code = "fedex";
-    protected $method = METHOD_POST;
+    protected $method = PARCEL_METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {

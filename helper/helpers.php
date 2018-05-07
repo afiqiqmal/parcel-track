@@ -4,11 +4,11 @@ use afiqiqmal\Library\ApiRequest;
 use Afiqiqmal\Library\ParcelUtils;
 use afiqiqmal\ParcelTrack\ParcelTrack;
 
-define('METHOD_POST', 'POST');
-define('METHOD_GET', 'GET');
-define('METHOD_PATCH', 'PATCH');
-define('METHOD_DELETE', 'DELETE');
-define('USER_AGENT', 'testing/1.0');
+define('PARCEL_METHOD_POST', 'POST');
+define('PARCEL_METHOD_GET', 'GET');
+define('PARCEL_METHOD_PATCH', 'PATCH');
+define('PARCEL_METHOD_DELETE', 'DELETE');
+define('PARCEL_USER_AGENT', 'testing/1.0');
 
 if (! function_exists('parcel_track')) {
 
@@ -18,9 +18,9 @@ if (! function_exists('parcel_track')) {
     }
 }
 
-if (! function_exists('api_request')) {
+if (! function_exists('parcel_request')) {
 
-    function api_request()
+    function parcel_request()
     {
         return new ApiRequest();
     }
