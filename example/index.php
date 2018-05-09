@@ -14,7 +14,8 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = parcel_track()->dhlExpress()->setTrackingNumber("5176011131")->fetch();
 //$response = parcel_track()->cityLink()->setTrackingNumber("960307804711915")->fetch();
 //$response = parcel_track()->fedEx()->setTrackingNumber("435171366301")->fetch();
-$response = parcel_track()->lelExpress()->setTrackingNumber("MYMP000000573505")->fetch();
+$response = parcel_track()->postLaju()->setTrackingNumber("ER287051644MY")->fetch();
+//$response = parcel_track()->lelExpress()->setTrackingNumber("MYMP000000573505")->fetch();
 
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);
