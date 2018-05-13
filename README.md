@@ -80,7 +80,7 @@ $data = parcel_track()
 
 
 ### Method
-<table border="1" width="100%">
+<table>
     <tr>
         <th>Method</th>
         <th>Param</th>
