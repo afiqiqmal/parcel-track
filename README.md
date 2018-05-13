@@ -80,6 +80,9 @@ $data = parcel_track()
 
 
 ### Method
+<style>
+  .markdown-body table {display: inline-table !important;}
+</style>
 <table border="1" width="100%">
     <tr>
         <th>Method</th>
