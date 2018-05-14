@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.7
+Add LeLExpress courier
+
+- Add lel lazada courier
+- Fix ApiRequest
+- Fix Abx Request Body
+
 ## 1.6
 Add FedEx courier
 

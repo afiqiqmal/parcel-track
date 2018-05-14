@@ -19,6 +19,7 @@ BTW, Currently available (Successfully Scraped)
 5. [SkyNet Express](http://www.skynet.com.my/)
 6. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
 7. [FedEx Express](https://www.fedex.com/my/)
+8. [LEL Express](http://www.lex.com.my/)
 
 
 Tested in PHP 7.1 Only
@@ -79,7 +80,7 @@ $data = parcel_track()
 
 
 ### Method
-<table border="1" width="100%">
+<table>
     <tr>
         <th>Method</th>
         <th>Param</th>
@@ -119,6 +120,11 @@ $data = parcel_track()
         <td>fedEx()</td>
         <td></td>
         <td>FedEx Express Courier</td>
+    </tr>
+    <tr>
+        <td>lelExpress()</td>
+        <td></td>
+        <td>Lazada E-Logistic Courier</td>
     </tr>
     <tr>
         <td>setTrackingNumber($refNumber)</td>

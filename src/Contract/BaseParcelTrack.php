@@ -14,9 +14,9 @@ use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
+use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
-use Carbon\Carbon;
 
 class BaseParcelTrack
 {
@@ -105,6 +105,7 @@ class BaseParcelTrack
             'generated_at' => Carbon::now()->toDateTimeString(),
         ], $this->createFooterJson(false));
     }
+
     /**
      * Fetch content from the url using guzzle
      * @param array $requestBody
@@ -112,7 +113,7 @@ class BaseParcelTrack
      */
     protected function execute($requestBody)
     {
-        $result = api_request()
+        $result = parcel_request()
             ->baseUrl($this->source->getUrl())
             ->setMethod($this->source->getMethodCall())
             ->setHeader($this->source->getHeader())

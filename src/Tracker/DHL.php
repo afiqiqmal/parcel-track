@@ -29,7 +29,7 @@ class DHL extends BaseTracker
     public function getHeader()
     {
         return [
-            'User-Agent' => USER_AGENT,
+            'User-Agent' => PARCEL_USER_AGENT,
             'Accept-Encoding' => 'gzip',
             'Accept' => 'application/json'
         ];

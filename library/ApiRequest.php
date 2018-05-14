@@ -110,39 +110,38 @@ class ApiRequest
             throw new \RuntimeException('Base URL need to be set!!');
         }
 
-        if (substr($this->baseUrl, -1) != '/') {
-            $this->baseUrl = $this->baseUrl."/";
-        }
+//        if (substr($this->baseUrl, -1) != '/') {
+//            $this->baseUrl = $this->baseUrl."/";
+//        }
 
         if ($this->requestUrl && substr($this->requestUrl, -1) == "/") {
             $this->requestUrl = ltrim($this->requestUrl, "/");
         }
-
-        if (!$this->requestUrl) {
-            $this->baseUrl = rtrim($this->baseUrl, '/');
-        }
+//
+//        if (!$this->requestUrl) {
+//            $this->baseUrl = rtrim($this->baseUrl, '/');
+//        }
 
         $url = $this->baseUrl . $this->requestUrl;
-
         try {
             $client = new Client();
             switch ($this->method) {
-                case METHOD_GET:
+                case PARCEL_METHOD_GET:
                     $param = [
                         'query' => $this->requestBody,
                         'headers' => $this->header
                     ];
                     break;
-                case METHOD_POST:
+                case PARCEL_METHOD_POST:
                     $param = [
                         'form_params' => $this->requestBody,
                         'headers' => $this->header
                     ];
                     break;
-                case METHOD_PATCH:
+                case PARCEL_METHOD_PATCH:
                     $param = [];
                     break;
-                case METHOD_DELETE:
+                case PARCEL_METHOD_DELETE:
                     $param = [];
                     break;
                 default:

@@ -16,7 +16,8 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = parcel_track()->fedEx()->setTrackingNumber("435171366301")->fetch();
 //$response = parcel_track()->postLaju()->setTrackingNumber("ER287051644MY")->fetch();
 //$response = parcel_track()->lelExpress()->setTrackingNumber("MYMP000000573505")->fetch();
-//EH722514602MY
+$response = parcel_track()->postLaju()->setTrackingNumber("ER287051644MY")->fetch();
+//$response = parcel_track()->lelExpress()->setTrackingNumber("MYMP000000573505")->fetch();
 
 $response = parcel_track()->setTrackingNumber("ER287051644MY")->checkCarrier();
 

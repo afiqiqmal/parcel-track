@@ -16,7 +16,7 @@ class SkyNet extends BaseTracker
     protected $url = "http://track.skynetexpressict.com/";
     protected $source = "Skynet Express";
     protected $code = "skynet";
-    protected $method = METHOD_POST;
+    protected $method = PARCEL_METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {

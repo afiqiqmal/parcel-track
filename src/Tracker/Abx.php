@@ -13,16 +13,17 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Abx extends BaseTracker
 {
-    protected $url = "http://www.abxexpress.com.my/track.asp?vsearch=True";
+    protected $url = "http://www.abxexpress.com.my/track.asp";
     protected $source = "ABX Express Sdn Bhd";
     protected $code = "abx";
-    protected $method = METHOD_POST;
+    protected $method = PARCEL_METHOD_POST;
 
     public function setTrackingNumber($refNum)
     {
         parent::setTrackingNumber($refNum);
         return [
             'tairbillno' => $refNum,
+            'vsearch' => 'True'
         ];
     }
 
