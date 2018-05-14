@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.8
+Check Courier Service
+- able to check which courier services is tracking number belongs to
+- fix wording
+
+## 1.7.2
+Fix Minor
+- Renaming to avoid conflict with other package
+
+## 1.7.1
+Fix Carbon Time
+- use stable version of carbon avoid conflict with laravel
+
 ## 1.7
 Add LeLExpress courier
 
