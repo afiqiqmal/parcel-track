@@ -10,8 +10,6 @@ use afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
 
 class ParcelTrack extends BaseParcelTrack
 {
-    protected $trackingCode = [];
-
     /**
      * set tracking number
      * @param $refNum
@@ -21,6 +19,11 @@ class ParcelTrack extends BaseParcelTrack
     {
         $this->trackingCode = $refNum;
         return $this;
+    }
+
+    public function checkCarrier()
+    {
+        return $this->getWhichCarrier();
     }
 
     public function fetch()

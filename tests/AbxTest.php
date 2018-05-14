@@ -32,4 +32,9 @@ class AbxTest extends TestCase
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
     }
+
+    function testAbxCheckCarrier()
+    {
+        $response = parcel_track()->setTrackingNumber("EZP843055940197")->checkCarrier();
+    }
 }

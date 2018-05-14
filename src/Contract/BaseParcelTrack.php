@@ -16,11 +16,13 @@ use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
+use Carbon\Carbon;
 
 class BaseParcelTrack
 {
     /** @var BaseTracker  **/
     protected $source = null;
+    protected $trackingCode = null;
 
     public function postLaju()
     {
@@ -64,6 +66,45 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function lelExpress()
+    {
+        $this->source = new LELExpress();
+        return $this;
+    }
+
+    protected function getWhichCarrier()
+    {
+        $carrier_matched = [];
+        if (preg_match('/E\w*MY$/', $this->trackingCode)) {
+            $carrier_matched[] = (new PosLaju())->getSourceName();
+        }
+
+        if (preg_match('/^E.*\d$/', $this->trackingCode)) {
+            $carrier_matched[] = (new SkyNet())->getSourceName();
+        }
+
+        if (preg_match('/MYM.\d*/', $this->trackingCode)) {
+            $carrier_matched[] = (new LELExpress())->getSourceName();
+        }
+
+        if (preg_match('/^\d{8,13}$/', $this->trackingCode)) {
+            $carrier_matched[] = (new Gdex())->getSourceName();
+            $carrier_matched[] = (new DHL())->getSourceName();
+            $carrier_matched[] = (new FedEx())->getSourceName();
+            $carrier_matched[] = (new SkyNet())->getSourceName();
+        }
+
+        if (strlen($this->trackingCode) >= 14) {
+            $carrier_matched[] = (new CityLink())->getSourceName();
+        }
+
+        return array_merge([
+            'code' => 200,
+            'error' => false,
+            'possible_carrier' => $carrier_matched,
+            'generated_at' => Carbon::now()->toDateTimeString(),
+        ], $this->createFooterJson(false));
+    }
     /**
      * Fetch content from the url using guzzle
      * @param array $requestBody
@@ -93,18 +134,31 @@ class BaseParcelTrack
 
     /**
      * Append Info at the end of content result
+     * @param bool $withSource
      * @return array
      */
-    protected function createFooterJson()
+    protected function createFooterJson($withSource = true)
     {
-        return [
-            'footer' => [
-                'source' => $this->source->getSourceName(),
-                'developer' => [
-                    "name" => "Hafiq",
-                    "homepage" => "https://github.com/afiqiqmal"
+        if ($withSource) {
+            return [
+                'footer' => [
+                    'source' => $this->source->getSourceName(),
+                    'homepage' => $this->source->getUrl(),
+                    'developer' => [
+                        "name" => "Hafiq",
+                        "homepage" => "https://github.com/afiqiqmal"
+                    ]
                 ]
-            ]
-        ];
+            ];
+        } else {
+            return [
+                'footer' => [
+                    'developer' => [
+                        "name" => "Hafiq",
+                        "homepage" => "https://github.com/afiqiqmal"
+                    ]
+                ]
+            ];
+        }
     }
 }
