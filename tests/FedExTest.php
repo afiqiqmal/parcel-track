@@ -36,8 +36,8 @@ class FedExTest extends TestCase
 
     function testFedExCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("435171366301")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("435171366301")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new FedEx())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new FedEx())->getSourceName(), $result['possible_courier']));
     }
 }

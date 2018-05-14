@@ -36,8 +36,8 @@ class AbxTest extends TestCase
 
     function testAbxCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("EZP843055940197")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("EZP843055940197")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new Abx())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new Abx())->getSourceName(), $result['possible_courier']));
     }
 }

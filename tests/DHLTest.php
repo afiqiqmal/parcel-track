@@ -37,8 +37,8 @@ class DHLTest extends TestCase
 
     function testDHLCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("5176011131")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("5176011131")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new DHL())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new DHL())->getSourceName(), $result['possible_courier']));
     }
 }

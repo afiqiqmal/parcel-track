@@ -36,8 +36,8 @@ class GDexTest extends TestCase
 
     function testGDexCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("4941410530")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("4941410530")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new Gdex())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new Gdex())->getSourceName(), $result['possible_courier']));
     }
 }

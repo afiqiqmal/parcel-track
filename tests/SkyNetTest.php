@@ -36,8 +36,8 @@ class SkyNetTest extends TestCase
 
     function testSkyNetCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("238216506684")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("238216506684")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new SkyNet())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new SkyNet())->getSourceName(), $result['possible_courier']));
     }
 }

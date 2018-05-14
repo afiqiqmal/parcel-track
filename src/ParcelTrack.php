@@ -21,9 +21,9 @@ class ParcelTrack extends BaseParcelTrack
         return $this;
     }
 
-    public function checkCarrier()
+    public function checkCourier()
     {
-        return $this->getWhichCarrier();
+        return $this->getWhichCourier();
     }
 
     public function fetch()

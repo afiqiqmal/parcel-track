@@ -36,8 +36,8 @@ class CityLinkTest extends TestCase
 
     function testCityLinkCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("960307804711915")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("960307804711915")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new CityLink())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new CityLink())->getSourceName(), $result['possible_courier']));
     }
 }

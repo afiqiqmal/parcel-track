@@ -73,36 +73,36 @@ class BaseParcelTrack
         return $this;
     }
 
-    protected function getWhichCarrier()
+    protected function getWhichCourier()
     {
-        $carrier_matched = [];
+        $courier_matched = [];
         if (preg_match('/E\w*MY$/', $this->trackingCode)) {
-            $carrier_matched[] = (new PosLaju())->getSourceName();
+            $courier_matched[] = (new PosLaju())->getSourceName();
         }
 
         if (preg_match('/^E.*\d$/', $this->trackingCode)) {
-            $carrier_matched[] = (new Abx())->getSourceName();
+            $courier_matched[] = (new Abx())->getSourceName();
         }
 
         if (preg_match('/MYM.\d*/', $this->trackingCode)) {
-            $carrier_matched[] = (new LELExpress())->getSourceName();
+            $courier_matched[] = (new LELExpress())->getSourceName();
         }
 
         if (preg_match('/^\d{8,13}$/', $this->trackingCode)) {
-            $carrier_matched[] = (new Gdex())->getSourceName();
-            $carrier_matched[] = (new DHL())->getSourceName();
-            $carrier_matched[] = (new FedEx())->getSourceName();
-            $carrier_matched[] = (new SkyNet())->getSourceName();
+            $courier_matched[] = (new Gdex())->getSourceName();
+            $courier_matched[] = (new DHL())->getSourceName();
+            $courier_matched[] = (new FedEx())->getSourceName();
+            $courier_matched[] = (new SkyNet())->getSourceName();
         }
 
         if (strlen($this->trackingCode) >= 14) {
-            $carrier_matched[] = (new CityLink())->getSourceName();
+            $courier_matched[] = (new CityLink())->getSourceName();
         }
 
         return array_merge([
             'code' => 200,
             'error' => false,
-            'possible_carrier' => $carrier_matched,
+            'possible_courier' => $courier_matched,
             'generated_at' => Carbon::now()->toDateTimeString(),
         ], $this->createFooterJson(false));
     }

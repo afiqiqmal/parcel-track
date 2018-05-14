@@ -36,8 +36,8 @@ class LELTest extends TestCase
 
     function testLELCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("MYMP000000573505")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("MYMP000000573505")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new LELExpress())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new LELExpress())->getSourceName(), $result['possible_courier']));
     }
 }

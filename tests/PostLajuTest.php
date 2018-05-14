@@ -36,8 +36,8 @@ class PostLajuTest extends TestCase
 
     function testPostLajuCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("ER157080065MY")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("ER157080065MY")->checkCourier();
         $this->assertFalse($result['error']);
-        $this->assertTrue(in_array((new PosLaju())->getSourceName(), $result['possible_carrier']));
+        $this->assertTrue(in_array((new PosLaju())->getSourceName(), $result['possible_courier']));
     }
 }

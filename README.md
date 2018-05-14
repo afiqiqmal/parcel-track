@@ -82,7 +82,7 @@ $data = parcel_track()
 ```php
 $data = parcel_track()
 	->setTrackingNumber("5176011131")
-	->checkCarrier();
+	->checkCourier();
 ```
 
 ### Method
