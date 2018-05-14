@@ -17,6 +17,7 @@ use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
+use Carbon\Carbon;
 
 class BaseParcelTrack
 {
@@ -80,7 +81,7 @@ class BaseParcelTrack
         }
 
         if (preg_match('/^E.*\d$/', $this->trackingCode)) {
-            $carrier_matched[] = (new SkyNet())->getSourceName();
+            $carrier_matched[] = (new Abx())->getSourceName();
         }
 
         if (preg_match('/MYM.\d*/', $this->trackingCode)) {

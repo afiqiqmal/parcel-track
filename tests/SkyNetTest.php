@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\SkyNet;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -10,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 */
 class SkyNetTest extends TestCase
 {
-    function testDHLSuccess()
+    function testSkyNetSuccess()
     {
         $result = parcel_track()->skynet()->setTrackingNumber("238216506684")->fetch();
 
@@ -18,7 +19,7 @@ class SkyNetTest extends TestCase
         $this->assertEquals(200, $result['code']);
     }
 
-    function testDHLEmptySuccess()
+    function testSkyNetEmptySuccess()
     {
         $result = parcel_track()->skynet()->setTrackingNumber("238216506684A")->fetch();
 
@@ -26,10 +27,17 @@ class SkyNetTest extends TestCase
         $this->assertEquals(200, $result['code']);
     }
 
-    function testDHLFailed()
+    function testSkyNetFailed()
     {
         $result = parcel_track()->setTrackingNumber("238216506684")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testSkyNetCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("238216506684")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new SkyNet())->getSourceName(), $result['possible_carrier']));
     }
 }

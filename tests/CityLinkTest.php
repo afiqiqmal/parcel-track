@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -31,5 +32,12 @@ class CityLinkTest extends TestCase
         $result = parcel_track()->setTrackingNumber("960307804711915")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testCityLinkCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("960307804711915")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new CityLink())->getSourceName(), $result['possible_carrier']));
     }
 }

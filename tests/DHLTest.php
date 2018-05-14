@@ -3,6 +3,8 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\CityLink;
+use afiqiqmal\ParcelTrack\Tracker\DHL;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -31,5 +33,12 @@ class DHLTest extends TestCase
         $result = parcel_track()->setTrackingNumber("5176011131")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testDHLCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("5176011131")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new DHL())->getSourceName(), $result['possible_carrier']));
     }
 }

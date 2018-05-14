@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -20,7 +21,7 @@ class PostLajuTest extends TestCase
 
     function testPostLajuEmptySuccess()
     {
-        $result = parcel_track()->postLaju()->setTrackingNumber("")->fetch();
+        $result = parcel_track()->postLaju()->setTrackingNumber("ER157080065MYAAAAA")->fetch();
 
         $this->assertTrue(count($result['tracker']['checkpoints']) == 0);
         $this->assertEquals(200, $result['code']);
@@ -31,5 +32,12 @@ class PostLajuTest extends TestCase
         $result = parcel_track()->setTrackingNumber("ER157080065MY")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testPostLajuCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("ER157080065MY")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new PosLaju())->getSourceName(), $result['possible_carrier']));
     }
 }

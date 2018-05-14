@@ -78,6 +78,12 @@ $data = parcel_track()
 	->fetch();
 ```
 
+#### Sample for Check Which Carrier Tracking Number belongs to
+```php
+$data = parcel_track()
+	->setTrackingNumber("5176011131")
+	->checkCarrier();
+```
 
 ### Method
 <table>
@@ -136,7 +142,29 @@ $data = parcel_track()
 
 ### Result
 
-You should getting data similarly like below:
+##### Checking Result
+For checking which carrier response like below:
+```json
+{
+    "code": 200,
+    "error": false,
+    "possible_carrier": [
+        "ABX Express Sdn Bhd",
+        "City Link Express"
+    ],
+    "generated_at": "2018-05-14 08:53:35",
+    "footer": {
+        "developer": {
+            "name": "Hafiq",
+            "homepage": "https://github.com/afiqiqmal"
+        }
+    }
+}
+
+```
+
+##### Tracker Result
+You should getting data tracker similarly like below:
 ```json
 {
     "code": 200,

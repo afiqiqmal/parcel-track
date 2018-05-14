@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -31,5 +32,12 @@ class LELTest extends TestCase
         $result = parcel_track()->setTrackingNumber("MYMP000000573505")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testLELCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("MYMP000000573505")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new LELExpress())->getSourceName(), $result['possible_carrier']));
     }
 }

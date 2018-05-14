@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\Abx;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -35,6 +36,8 @@ class AbxTest extends TestCase
 
     function testAbxCheckCarrier()
     {
-        $response = parcel_track()->setTrackingNumber("EZP843055940197")->checkCarrier();
+        $result = parcel_track()->setTrackingNumber("EZP843055940197")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new Abx())->getSourceName(), $result['possible_carrier']));
     }
 }

@@ -3,6 +3,7 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
+use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use PHPUnit\Framework\TestCase;
 /**
 * RequestTest.php
@@ -31,5 +32,12 @@ class FedExTest extends TestCase
         $result = parcel_track()->setTrackingNumber("435171366301")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
+    }
+
+    function testFedExCheckCarrier()
+    {
+        $result = parcel_track()->setTrackingNumber("435171366301")->checkCarrier();
+        $this->assertFalse($result['error']);
+        $this->assertTrue(in_array((new FedEx())->getSourceName(), $result['possible_carrier']));
     }
 }
