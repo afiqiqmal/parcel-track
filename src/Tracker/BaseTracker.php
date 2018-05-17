@@ -89,6 +89,7 @@ class BaseTracker
         }
 
         $process = strtolower($process);
+
         if (preg_match('(counter|outbound|transhipment|collection|collected|picked up)', $process)) {
             return "item_received";
         }
@@ -103,6 +104,10 @@ class BaseTracker
 
         if (preg_match('(facility|transit|inbound)', $process)) {
             return "facility_process";
+        }
+
+        if (preg_match('(unsuccessful|failed)', $process)) {
+            return "delivery_failed";
         }
 
         if (preg_match('(delivery|with courier)', $process)) {
