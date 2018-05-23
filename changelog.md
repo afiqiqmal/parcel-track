@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.9
+Add New Courier DHL E-Commerce
+- add dhl e-commerce
+- fix checking on request body
+- return all 200 with empty list, only 400 if missing chain method
+
+## 1.8.1
+Fix Minor
+- fix distinguish type of process
+
 ## 1.8
 Check Courier Service
 - able to check which courier services is tracking number belongs to
