@@ -72,10 +72,9 @@ class BaseTracker
             return isset($item['type']) && $item['type'] == 'delivered';
         })) != null;
         $tracker['checkpoints'] = $reverse ? array_reverse($data) : $data;
-
         return [
-            'code' => $result['status_code'] ? $result['status_code'] : 400,
-            'error' => $result['status_code'] && $result['status_code'] >= 300 ? true : false,
+            'code' => $status_code,
+            'error' => $status_code >= 300 ? true : false,
             'tracker' => $tracker,
             'generated_at' => Carbon::now()->toDateTimeString(),
             'footer' => $result['footer']
