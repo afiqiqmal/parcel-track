@@ -16,10 +16,11 @@ BTW, Currently available (Successfully Scraped)
 2. [GDEX](http://www.gdexpress.com/malaysia/home/)
 3. [ABX Express](http://www.abxexpress.com.my/)
 4. [DHL Express](https://www.logistics.dhl/my-en/home.html)
-5. [SkyNet Express](http://www.skynet.com.my/)
-6. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
-7. [FedEx Express](https://www.fedex.com/my/)
-8. [LEL Express](http://www.lex.com.my/)
+5. [DHL E-Commerce](https://www.logistics.dhl/my-en/home/our-divisions/ecommerce.html)
+6. [SkyNet Express](http://www.skynet.com.my/)
+7. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
+8. [FedEx Express](https://www.fedex.com/my/)
+9. [LEL Express](http://www.lex.com.my/)
 
 
 Tested in PHP 7.1 Only
@@ -106,6 +107,11 @@ $data = parcel_track()
         <td>dhlExpress()</td>
         <td></td>
         <td>DHL Express Courier</td>
+    </tr>
+    <tr>
+        <td>dhlECommerce()</td>
+        <td></td>
+        <td>DHL E-Commerce Courier</td>
     </tr>
     <tr>
         <td>gdex()</td>

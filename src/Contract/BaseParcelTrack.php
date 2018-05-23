@@ -12,6 +12,7 @@ use afiqiqmal\ParcelTrack\Tracker\Abx;
 use afiqiqmal\ParcelTrack\Tracker\BaseTracker;
 use afiqiqmal\ParcelTrack\Tracker\CityLink;
 use afiqiqmal\ParcelTrack\Tracker\DHL;
+use afiqiqmal\ParcelTrack\Tracker\DHLCommerce;
 use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
 use afiqiqmal\ParcelTrack\Tracker\LELExpress;
@@ -46,6 +47,12 @@ class BaseParcelTrack
     public function dhlExpress()
     {
         $this->source = new DHL();
+        return $this;
+    }
+
+    public function dhlECommerce()
+    {
+        $this->source = new DHLCommerce();
         return $this;
     }
 
@@ -97,6 +104,7 @@ class BaseParcelTrack
 
         if (strlen($this->trackingCode) >= 14) {
             $courier_matched[] = (new CityLink())->getSourceName();
+            $courier_matched[] = (new DHLCommerce())->getSourceName();
         }
 
         return array_merge([
@@ -127,11 +135,7 @@ class BaseParcelTrack
             $result = $result->fetch();
         }
 
-        if (isset($result['body'])) {
-            return $result;
-        }
-
-        return null;
+        return $result;
     }
 
     /**

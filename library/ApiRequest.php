@@ -162,20 +162,22 @@ class ApiRequest
                 'status_code' => $response->getStatusCode(),
             ];
 
-            return array_merge($data, $this->appendJson);
-
         } catch (\Exception $ex) {
-            return [
+            $data = [
                 'error' => true,
                 'message' => $ex->getMessage(),
-                'reference' => $ex->getTraceAsString()
+                'reference' => $ex->getTraceAsString(),
+                'status_code' => 400
             ];
         } catch (GuzzleException $ex) {
-            return [
+            $data = [
                 'error' => true,
                 'message' => $ex->getMessage(),
-                'reference' => $ex->getTraceAsString()
+                'reference' => $ex->getTraceAsString(),
+                'status_code' => 400
             ];
         }
+
+        return array_merge($data, $this->appendJson);
     }
 }

@@ -30,41 +30,45 @@ class Gdex extends BaseTracker
 
     public function startCrawl($result)
     {
-        $crawler = new Crawler($result['body']);
+        if (isset($result['body'])) {
+            $crawler = new Crawler($result['body']);
 
-        $crawlerResult = $crawler->filter('#products tr:not(:first-child)')->each(function (Crawler $node, $i) {
-            if (strtolower($node->text()) != 'invalid cn') {
-                $result = $node->filter('td:not(:first-child)')->each(function (Crawler $node, $i) {
-                    return trim_spaces($node->text());
-                });
+            $crawlerResult = $crawler->filter('#products tr:not(:first-child)')->each(function (Crawler $node, $i) {
+                if (strtolower($node->text()) != 'invalid cn') {
+                    $result = $node->filter('td:not(:first-child)')->each(function (Crawler $node, $i) {
+                        return trim_spaces($node->text());
+                    });
 
-                $data = [];
-                foreach ($result as $key => $item) {
-                    if ($key == 0) {
-                        $parcel = Carbon::createFromFormat("d/m/Y H:i:s", $item);
-                        $data['date'] = $parcel->toDateTimeString();
-                        $data['timestamp'] = $parcel->timestamp;
+                    $data = [];
+                    foreach ($result as $key => $item) {
+                        if ($key == 0) {
+                            $parcel = Carbon::createFromFormat("d/m/Y H:i:s", $item);
+                            $data['date'] = $parcel->toDateTimeString();
+                            $data['timestamp'] = $parcel->timestamp;
+                        }
+                        if ($key == 1) {
+                            $data['process'] = $item;
+                            $data['type'] = $this->distinguishProcess($item);
+                        }
+                        if ($key == 2) {
+                            $data['event'] = $item;
+                        }
                     }
-                    if ($key == 1) {
-                        $data['process'] = $item;
-                        $data['type'] = $this->distinguishProcess($item);
-                    }
-                    if ($key == 2) {
-                        $data['event'] = $item;
-                    }
+
+                    return $data;
+                } else {
+                    return null;
                 }
+            });
 
-                return $data;
-            } else {
-                return null;
+            //reset if not found. weird dom output
+            if ($crawlerResult[0] == []) {
+                $crawlerResult = [];
             }
-        });
 
-        //reset if not found. weird dom output
-        if ($crawlerResult[0] == []) {
-            $crawlerResult = [];
+            return $this->buildResponse($result, $crawlerResult);
         }
 
-        return $this->buildResponse($result, $crawlerResult);
+        return $this->buildResponse($result, []);
     }
 }
