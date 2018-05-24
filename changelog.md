@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.10
+Add New Courier KTMD
+- add KTM Distribution Sdn Bhd
+
 ## 1.9
 Add New Courier DHL E-Commerce
 - add dhl e-commerce
@@ -28,7 +32,7 @@ Fix Carbon Time
 ## 1.7
 Add LeLExpress courier
 
-- Add lel lazada courier
+- Add LEL Lazada courier
 - Fix ApiRequest
 - Fix Abx Request Body
 

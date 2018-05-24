@@ -19,6 +19,7 @@ BTW, Currently available (Successfully Scraped)
 7. [CityLink Express](http://www.citylinkexpress.com/MY/Consignment.aspx)
 8. [FedEx Express](https://www.fedex.com/my/)
 9. [LEL Express](http://www.lex.com.my/)
+10. [KTM Distribution Sdn Bhd](http://www.ktmd.com.my/tracking/)
 
 
 Tested in PHP 7.1 Only
@@ -136,6 +137,11 @@ $data = parcel_track()
         <td></td>
         <td>Lazada E-Logistic Courier</td>
     </tr>
+    <tr>
+        <td>ktmd()</td>
+        <td></td>
+        <td>KTM Distribution Sdn Bhd</td>
+    </tr>    
     <tr>
         <td>setTrackingNumber($refNumber)</td>
         <td><code>String</code></td>

@@ -15,6 +15,7 @@ use afiqiqmal\ParcelTrack\Tracker\DHL;
 use afiqiqmal\ParcelTrack\Tracker\DHLCommerce;
 use afiqiqmal\ParcelTrack\Tracker\FedEx;
 use afiqiqmal\ParcelTrack\Tracker\Gdex;
+use afiqiqmal\ParcelTrack\Tracker\KTMD;
 use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
@@ -80,6 +81,12 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function ktmd()
+    {
+        $this->source = new KTMD();
+        return $this;
+    }
+
     protected function getWhichCourier()
     {
         $courier_matched = [];
@@ -100,6 +107,7 @@ class BaseParcelTrack
             $courier_matched[] = (new DHL())->getSourceName();
             $courier_matched[] = (new FedEx())->getSourceName();
             $courier_matched[] = (new SkyNet())->getSourceName();
+            $courier_matched[] = (new KTMD())->getSourceName();
         }
 
         if (strlen($this->trackingCode) >= 14) {
