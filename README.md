@@ -4,10 +4,8 @@
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
 -->
 
-Simple Parcel Tracker Packagist for Local Parcel Courier. 
-Basically it just crawl the courier website. Need time to time monitor changes before failure happen.
-
-Pftt.. I just don't know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all Test Unit <font style="color: green">Passed</font> . I disabled it first because always failing on travis-ci.org =)
+Simple Parcel Tracker for Local Parcel Courier. 
+Basically it just crawl the courier website/API. Need time to time monitor changes before failure happen.
 
 <br>
 
@@ -230,10 +228,14 @@ You should getting data tracker similarly like below:
 
 ## Todo
 - Struggling for other Parcel Data
+- Keep up to date if any parcel data changes
 
 ## Issue
-- If Issue happen like the api always return empty [], just let me know =)
+- If Issue happen like the api always return empty [] after cross check with real site, just let me know =)
 
+<br>
+Pftt.. I just don't know why, the Travis CI is failed. It because of `gnutls_handshake() failed`. In my local env, all Test Unit <font style="color: green">Passed</font> . I disabled it first because always failing on travis-ci.org =)
+<br>
 ## ChangeLog
 - See changelog.md
 
