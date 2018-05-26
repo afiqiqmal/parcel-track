@@ -19,6 +19,7 @@ use afiqiqmal\ParcelTrack\Tracker\KTMD;
 use afiqiqmal\ParcelTrack\Tracker\LELExpress;
 use afiqiqmal\ParcelTrack\Tracker\PosLaju;
 use afiqiqmal\ParcelTrack\Tracker\SkyNet;
+use afiqiqmal\ParcelTrack\Tracker\UPS;
 use Carbon\Carbon;
 
 class BaseParcelTrack
@@ -87,6 +88,12 @@ class BaseParcelTrack
         return $this;
     }
 
+    public function ups()
+    {
+        $this->source = new UPS();
+        return $this;
+    }
+
     protected function getWhichCourier()
     {
         $courier_matched = [];
@@ -102,6 +109,10 @@ class BaseParcelTrack
             $courier_matched[] = (new LELExpress())->getSourceName();
         }
 
+        if (preg_match('/(1Z.\d{15})|\T\d{10}|\d{9,12}/', $this->trackingCode)) {
+            $courier_matched[] = (new UPS())->getSourceName();
+        }
+
         if (preg_match('/^\d{8,13}$/', $this->trackingCode)) {
             $courier_matched[] = (new Gdex())->getSourceName();
             $courier_matched[] = (new DHL())->getSourceName();
@@ -110,7 +121,7 @@ class BaseParcelTrack
             $courier_matched[] = (new KTMD())->getSourceName();
         }
 
-        if (strlen($this->trackingCode) >= 14) {
+        if (preg_match('/^\d*$/', $this->trackingCode) && strlen($this->trackingCode) >= 14) {
             $courier_matched[] = (new CityLink())->getSourceName();
             $courier_matched[] = (new DHLCommerce())->getSourceName();
         }

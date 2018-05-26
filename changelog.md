@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.11
+Add New Courier UPS Express
+- add United Parcel Service (M) Sdn Bhd (Main)
+
 ## 1.10
 Add New Courier KTMD
 - add KTM Distribution Sdn Bhd
