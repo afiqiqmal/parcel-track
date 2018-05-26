@@ -5,7 +5,7 @@
 -->
 
 Simple Parcel Tracker for Local Parcel Courier. 
-Basically it just crawl the courier website/API. Need time to time monitor changes before failure happen.
+Basically it just crawl the courier website or existing API. Need time to time to monitor web/api changes before failure happen.
 
 <br>
 
