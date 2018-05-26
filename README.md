@@ -20,6 +20,7 @@ BTW, Currently available (Successfully Scraped)
 8. [FedEx Express](https://www.fedex.com/my/)
 9. [LEL Express](http://www.lex.com.my/)
 10. [KTM Distribution Sdn Bhd](http://www.ktmd.com.my/tracking/)
+11. [UPS](https://wwwapps.ups.com/WebTracking/track)
 
 
 Tested in PHP 7.1 Only
@@ -141,6 +142,11 @@ $data = parcel_track()
         <td>ktmd()</td>
         <td></td>
         <td>KTM Distribution Sdn Bhd</td>
+    </tr> 
+    <tr>
+        <td>ups()</td>
+        <td></td>
+        <td>United Parcel Service Courier/td>
     </tr>    
     <tr>
         <td>setTrackingNumber($refNumber)</td>
