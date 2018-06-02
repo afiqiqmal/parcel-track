@@ -1,8 +1,8 @@
 # Parcel Tracker
-<!---
+
 [![Build Status](https://travis-ci.org/afiqiqmal/parcel-track.svg?branch=master)](https://travis-ci.org/afiqiqmal/parcel-track)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
--->
+
 
 Simple Parcel Tracker for Local Parcel Courier. 
 Basically it just crawl the courier website or existing API. Need time to time to monitor web/api changes before failure happen.
