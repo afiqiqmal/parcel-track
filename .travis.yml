@@ -1,9 +1,12 @@
 language: php
+
 php:
   - '7.1'
 
 before_script:
-  - composer install --ignore-platform-reqs
+    - composer self-update
+    - composer install --prefer-source --no-interaction
+    - composer dumpautoload
 
 script:
     - phpunit --coverage-clover=coverage.xml
