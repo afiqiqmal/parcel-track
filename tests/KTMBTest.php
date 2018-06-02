@@ -3,9 +3,9 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-use afiqiqmal\ParcelTrack\Tracker\CityLink;
-use afiqiqmal\ParcelTrack\Tracker\DHL;
+use Afiqiqmal\ParcelTrack\Tracker\DHL;
 use PHPUnit\Framework\TestCase;
+
 /**
 * RequestTest.php
 * to test function in Request class

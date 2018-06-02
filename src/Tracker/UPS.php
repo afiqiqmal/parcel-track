@@ -6,10 +6,9 @@
  * Time: 11:02 PM
  */
 
-namespace afiqiqmal\ParcelTrack\Tracker;
+namespace Afiqiqmal\ParcelTrack\Tracker;
 
 use Carbon\Carbon;
-use function foo\func;
 use Symfony\Component\DomCrawler\Crawler;
 
 class UPS extends BaseTracker

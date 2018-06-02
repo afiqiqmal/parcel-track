@@ -6,7 +6,7 @@
  * Time: 11:23 PM
  */
 
-namespace afiqiqmal\ParcelTrack\Tracker;
+namespace Afiqiqmal\ParcelTrack\Tracker;
 
 use Carbon\Carbon;
 

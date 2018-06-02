@@ -8,7 +8,7 @@
         {
             "name": "Hafiq",
             "email": "hafiqiqmal@gmail.com",
-            "homepage": "https://github.com/afiqiqmal"
+            "homepage": "https://github.com/Afiqiqmal"
         }
     ],
     "require": {
@@ -23,8 +23,8 @@
     },
     "autoload": {
         "psr-4": {
-            "afiqiqmal\\ParcelTrack\\": "src/",
-            "afiqiqmal\\Library\\": "library/"
+            "Afiqiqmal\\ParcelTrack\\": "src/",
+            "Afiqiqmal\\Library\\": "Library/"
         },
         "files": ["helper/helpers.php"]
     }

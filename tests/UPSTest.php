@@ -3,8 +3,9 @@ namespace Tests;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-use afiqiqmal\ParcelTrack\Tracker\UPS;
+use Afiqiqmal\ParcelTrack\Tracker\UPS;
 use PHPUnit\Framework\TestCase;
+
 /**
 * RequestTest.php
 * to test function in Request class

@@ -6,7 +6,7 @@
  */
 namespace Afiqiqmal\ParcelTrack;
 
-use afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
+use Afiqiqmal\ParcelTrack\Contract\BaseParcelTrack;
 
 class ParcelTrack extends BaseParcelTrack
 {

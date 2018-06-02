@@ -6,20 +6,20 @@
  * Time: 10:57 PM
  */
 
-namespace afiqiqmal\ParcelTrack\Contract;
+namespace Afiqiqmal\ParcelTrack\Contract;
 
-use afiqiqmal\ParcelTrack\Tracker\Abx;
-use afiqiqmal\ParcelTrack\Tracker\BaseTracker;
-use afiqiqmal\ParcelTrack\Tracker\CityLink;
-use afiqiqmal\ParcelTrack\Tracker\DHL;
-use afiqiqmal\ParcelTrack\Tracker\DHLCommerce;
-use afiqiqmal\ParcelTrack\Tracker\FedEx;
-use afiqiqmal\ParcelTrack\Tracker\Gdex;
-use afiqiqmal\ParcelTrack\Tracker\KTMD;
-use afiqiqmal\ParcelTrack\Tracker\LELExpress;
-use afiqiqmal\ParcelTrack\Tracker\PosLaju;
-use afiqiqmal\ParcelTrack\Tracker\SkyNet;
-use afiqiqmal\ParcelTrack\Tracker\UPS;
+use Afiqiqmal\ParcelTrack\Tracker\Abx;
+use Afiqiqmal\ParcelTrack\Tracker\BaseTracker;
+use Afiqiqmal\ParcelTrack\Tracker\CityLink;
+use Afiqiqmal\ParcelTrack\Tracker\DHL;
+use Afiqiqmal\ParcelTrack\Tracker\DHLCommerce;
+use Afiqiqmal\ParcelTrack\Tracker\FedEx;
+use Afiqiqmal\ParcelTrack\Tracker\Gdex;
+use Afiqiqmal\ParcelTrack\Tracker\KTMD;
+use Afiqiqmal\ParcelTrack\Tracker\LELExpress;
+use Afiqiqmal\ParcelTrack\Tracker\PosLaju;
+use Afiqiqmal\ParcelTrack\Tracker\SkyNet;
+use Afiqiqmal\ParcelTrack\Tracker\UPS;
 use Carbon\Carbon;
 
 class BaseParcelTrack
@@ -171,7 +171,7 @@ class BaseParcelTrack
                     'homepage' => $this->source->getUrl(),
                     'developer' => [
                         "name" => "Hafiq",
-                        "homepage" => "https://github.com/afiqiqmal"
+                        "homepage" => "https://github.com/Afiqiqmal"
                     ]
                 ]
             ];
@@ -180,7 +180,7 @@ class BaseParcelTrack
                 'footer' => [
                     'developer' => [
                         "name" => "Hafiq",
-                        "homepage" => "https://github.com/afiqiqmal"
+                        "homepage" => "https://github.com/Afiqiqmal"
                     ]
                 ]
             ];
