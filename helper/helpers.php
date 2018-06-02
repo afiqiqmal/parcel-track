@@ -8,7 +8,7 @@ define('PARCEL_METHOD_POST', 'POST');
 define('PARCEL_METHOD_GET', 'GET');
 define('PARCEL_METHOD_PATCH', 'PATCH');
 define('PARCEL_METHOD_DELETE', 'DELETE');
-define('PARCEL_USER_AGENT', 'testing/1.0');
+define('PARCEL_USER_AGENT', 'parcel-tracker/1.0');
 
 if (! function_exists('parcel_track')) {
 

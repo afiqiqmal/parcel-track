@@ -52,13 +52,13 @@ class BaseParcelTrack
         return $this;
     }
 
-    public function dhlECommerce()
+    public function dhlCommerce()
     {
         $this->source = new DHLCommerce();
         return $this;
     }
 
-    public function skynet()
+    public function skyNet()
     {
         $this->source = new SkyNet();
         return $this;

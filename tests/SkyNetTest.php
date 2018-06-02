@@ -14,7 +14,7 @@ class SkyNetTest extends TestCase
 {
     function testSkyNetSuccess()
     {
-        $result = parcel_track()->skynet()->setTrackingNumber("238216506684")->fetch();
+        $result = parcel_track()->skyNet()->setTrackingNumber("238216506684")->fetch();
 
         $this->assertTrue(true);
         $this->assertEquals(200, $result['code']);
@@ -22,7 +22,7 @@ class SkyNetTest extends TestCase
 
     function testSkyNetEmptySuccess()
     {
-        $result = parcel_track()->skynet()->setTrackingNumber("238216506684A")->fetch();
+        $result = parcel_track()->skyNet()->setTrackingNumber("238216506684A")->fetch();
 
         $this->assertTrue(count($result['tracker']['checkpoints']) == 0);
         $this->assertEquals(200, $result['code']);

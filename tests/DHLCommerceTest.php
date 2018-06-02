@@ -14,7 +14,7 @@ class DHLCommerceTest extends TestCase
 {
     function testDHLCommerceSuccess()
     {
-        $result = parcel_track()->dhlECommerce()->setTrackingNumber("5218031053514008")->fetch();
+        $result = parcel_track()->dhlCommerce()->setTrackingNumber("5218031053514008")->fetch();
 
         $this->assertTrue(true);
         $this->assertEquals(200, $result['code']);
@@ -22,7 +22,7 @@ class DHLCommerceTest extends TestCase
 
     function testDHLCommerceEmptySuccess()
     {
-        $result = parcel_track()->dhlECommerce()->setTrackingNumber("521803105351400")->fetch();
+        $result = parcel_track()->dhlCommerce()->setTrackingNumber("521803105351400")->fetch();
 
         $this->assertTrue(count($result['tracker']['checkpoints']) == 0);
         $this->assertEquals(200, $result['code']);

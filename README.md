@@ -109,7 +109,7 @@ $data = parcel_track()
         <td>DHL Express Courier</td>
     </tr>
     <tr>
-        <td>dhlECommerce()</td>
+        <td>dhlCommerce()</td>
         <td></td>
         <td>DHL E-Commerce Courier</td>
     </tr>
@@ -119,7 +119,7 @@ $data = parcel_track()
         <td>GD Express Courier</td>
     </tr>
     <tr>
-        <td>skynet()</td>
+        <td>skyNet()</td>
         <td></td>
         <td>SkyNet Express Courier</td>
     </tr>
