@@ -30,7 +30,6 @@ class DHL extends BaseTracker
     {
         return [
             'User-Agent' => PARCEL_USER_AGENT,
-            'Accept-Encoding' => 'gzip',
             'Accept' => 'application/json'
         ];
     }
