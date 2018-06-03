@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/afiqiqmal/parcel-track.svg?branch=master)](https://travis-ci.org/afiqiqmal/parcel-track)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
+[![Packagist](https://img.shields.io/packagist/dt/hyn/parcel-track.svg)](https://packagist.org/packages/hyn/parcel-track)
+[![Packagist](https://img.shields.io/packagist/v/hyn/parcel-track.svg)](https://packagist.org/packages/hyn/parcel-track)
 
 
 Simple Parcel Tracker for Local Parcel Courier. 
