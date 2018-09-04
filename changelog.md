@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.2
+- FIx LEL Express changing their URL
+- Fix Skynet Because of Changing of the UI
+
 ## 1.11
 Add New Courier UPS Express
 - add United Parcel Service (M) Sdn Bhd (Main)

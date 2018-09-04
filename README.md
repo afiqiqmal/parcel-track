@@ -148,7 +148,7 @@ $data = parcel_track()
     <tr>
         <td>ups()</td>
         <td></td>
-        <td>United Parcel Service Courier/td>
+        <td>United Parcel Service Courier</td>
     </tr>    
     <tr>
         <td>setTrackingNumber($refNumber)</td>

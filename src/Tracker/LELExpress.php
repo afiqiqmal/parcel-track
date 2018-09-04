@@ -13,7 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class LELExpress extends BaseTracker
 {
-    protected $url = "http://www.lex.com.my/tracker/";
+    protected $url = "https://tracker.lel.asia/";
     protected $source = "Lazada E-Logistic Express";
     protected $code = "lex";
 

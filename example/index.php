@@ -9,7 +9,7 @@
 require_once __DIR__ .'/../vendor/autoload.php';
 
 //$response = parcel_track()->gdExpress()->setTrackingNumber("4941410530")->fetch();
-//$response = parcel_track()->skynet()->setTrackingNumber("238216506684")->fetch();
+$response = parcel_track()->skynet()->setTrackingNumber("238216506684")->fetch();
 //$response = parcel_track()->abxExpress()->setTrackingNumber("EZP843055940197")->fetch();
 //$response = parcel_track()->dhlExpress()->setTrackingNumber("5176011131")->fetch();
 //$response = parcel_track()->cityLink()->setTrackingNumber("960307804711915")->fetch();
@@ -20,7 +20,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = parcel_track()->lelExpress()->setTrackingNumber("MYMP000000573505")->fetch();
 //$response = parcel_track()->dhlECommerce()->setTrackingNumber("5218031053514008AAAA")->fetch();
 //$response = parcel_track()->ktmd()->setTrackingNumber("103154269")->fetch();
-$response = parcel_track()->ups()->setTrackingNumber("1Z0V255F0498628539")->fetch();
+//$response = parcel_track()->ups()->setTrackingNumber("1Z0V255F0498628539")->fetch();
 
 //$response = parcel_track()->setTrackingNumber("EZP843055940197")->checkCourier();
 
