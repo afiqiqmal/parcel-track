@@ -82,7 +82,7 @@ class BaseParcelTrack
         return $this;
     }
 
-    public function ktmd()
+    public function ktmDelivery()
     {
         $this->source = new KTMD();
         return $this;

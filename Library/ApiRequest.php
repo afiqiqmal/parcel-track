@@ -9,7 +9,7 @@ class ApiRequest
     protected $baseUrl = null;
     protected $requestBody = [];
     protected $param = [];
-    protected $method = "GET";
+    protected $method = PARCEL_METHOD_GET;
     protected $requestUrl = null;
     protected $header = null;
     protected $appendJson = null;
@@ -36,29 +36,29 @@ class ApiRequest
 
     function getMethod()
     {
-        $this->method = "GET";
+        $this->method = PARCEL_METHOD_GET;
         return $this;
     }
 
     function postMethod()
     {
-        $this->method = "POST";
+        $this->method = PARCEL_METHOD_POST;
         return $this;
     }
 
     function patchMethod()
     {
-        $this->method = "PATCH";
+        $this->method = PARCEL_METHOD_PATCH;
         return $this;
     }
 
     function deleteMethod()
     {
-        $this->method = "DELETE";
+        $this->method = PARCEL_METHOD_DELETE;
         return $this;
     }
 
-    function setMethod($method = "GET")
+    function setMethod($method = PARCEL_METHOD_GET)
     {
         $this->method = $method;
         return $this;
@@ -110,17 +110,9 @@ class ApiRequest
             throw new \RuntimeException('Base URL need to be set!!');
         }
 
-//        if (substr($this->baseUrl, -1) != '/') {
-//            $this->baseUrl = $this->baseUrl."/";
-//        }
-
         if ($this->requestUrl && substr($this->requestUrl, -1) == "/") {
             $this->requestUrl = ltrim($this->requestUrl, "/");
         }
-//
-//        if (!$this->requestUrl) {
-//            $this->baseUrl = rtrim($this->baseUrl, '/');
-//        }
 
         $url = $this->baseUrl . $this->requestUrl;
         try {

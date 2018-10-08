@@ -141,7 +141,7 @@ $data = parcel_track()
         <td>Lazada E-Logistic Courier</td>
     </tr>
     <tr>
-        <td>ktmd()</td>
+        <td>ktmDelivery()</td>
         <td></td>
         <td>KTM Distribution Sdn Bhd</td>
     </tr> 
