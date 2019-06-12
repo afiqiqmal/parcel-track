@@ -13,7 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class PosLaju extends BaseTracker
 {
-    protected $url = "https://poslaju.com.my/track-trace-v2/";
+    protected $url = "https://www.poslaju.com.my/track-trace-v2/";
     protected $source = "Post Laju";
     protected $code = "poslaju";
     protected $method = PARCEL_METHOD_POST;
