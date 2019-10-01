@@ -129,12 +129,11 @@ class ApiRequest
                         'form_params' => $this->requestBody,
                         'headers' => $this->header
                     ];
-                    break;
-                case PARCEL_METHOD_PATCH:
-                    $param = [];
-                    break;
-                case PARCEL_METHOD_DELETE:
-                    $param = [];
+                    $queryParam = $this->requestBody['parameter'] ?? null;
+                    if ($queryParam) {
+                        $param['query'] = $queryParam;
+                        unset($this->requestBody['parameter']);
+                    }
                     break;
                 default:
                     $param = null;

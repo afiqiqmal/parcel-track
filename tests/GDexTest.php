@@ -14,7 +14,7 @@ class GDexTest extends TestCase
 {
     function testGDexSuccess()
     {
-        $result = parcel_track()->gdExpress()->setTrackingNumber("4941410530")->fetch();
+        $result = parcel_track()->gdExpress()->setTrackingNumber("MY82067332685")->fetch();
 
         $this->assertTrue(true);
         $this->assertEquals(200, $result['code']);
@@ -30,14 +30,14 @@ class GDexTest extends TestCase
 
     function testGDexFailed()
     {
-        $result = parcel_track()->setTrackingNumber("4941410530")->fetch();
+        $result = parcel_track()->setTrackingNumber("MY82067332685")->fetch();
         $this->assertTrue($result['error']);
         $this->assertEquals(400, $result['code']);
     }
 
     function testGDexCheckCarrier()
     {
-        $result = parcel_track()->setTrackingNumber("4941410530")->checkCourier();
+        $result = parcel_track()->setTrackingNumber("MY82067332685")->checkCourier();
         $this->assertFalse($result['error']);
         $this->assertTrue(in_array((new Gdex())->getSourceName(), $result['possible_courier']));
     }
