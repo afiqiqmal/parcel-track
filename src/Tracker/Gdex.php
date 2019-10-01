@@ -13,7 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Gdex extends BaseTracker
 {
-    protected $url = "http://web2.gdexpress.com/official/iframe/etracking_v2.php";
+    protected $url = "https://esvr3.gdexpress.com/SOTS_Integrated/api/services/app/eTracker/GetListByCnNumber";
     protected $source = "GD Express Sdn Bhd";
     protected $code = "gdex";
     protected $method = PARCEL_METHOD_POST;
@@ -22,51 +22,96 @@ class Gdex extends BaseTracker
     {
         parent::setTrackingNumber($refNum);
         return [
-            'capture' => $refNum,
-            'redoc_gdex' => 'cnGdex',
-            'Submit' => 'Track',
+            'parameter' => [
+                'input' => $refNum
+            ],
         ];
+    }
+
+    public function rawOutput()
+    {
+        return false;
     }
 
     public function startCrawl($result)
     {
         if (isset($result['body'])) {
-            $crawler = new Crawler($result['body']);
+            $main = [];
+            if ($result['body']['success']) {
+                if (count($result['body']['result']) > 0) {
+                    $route = $result['body']['result'][0];
+                    if ($route['listPodData']) {
+                        foreach ($route['listPodData'] as $item) {
+                            $date = explode(' ', $item['dtScan']);
+                            $date = Carbon::parse($date[0] . " " . $date[1]);
+                            $data = [];
+                            $data['date'] = $date->toDateTimeString();
+                            $data['timestamp'] = $date->timestamp;
+                            switch ($item['type']) {
+                                case 'pod':
+                                case 'm_pod':
+                                    $data['process'] = 'Delivered';
+                                    break;
+                                case 'i_pod':
+                                    $data['process'] = 'Under Claim';
+                                    break;
+                                case 'undl':
+                                case 'm_undl':
+                                    $data['process'] = "Undelivered due to " . $item['problem_code'];
+                                    break;
+                                case 'rts':
+                                case 'm_rts':
+                                    $data['process'] = "Returned to shipper";
+                                    break;
+                                case 'I':
+                                    $data['process'] = "Picked up by courier";
+                                    break;
+                                case 'Warehouse':
+                                    $data['process'] = "Outbound to HUB";
+                                    break;
+                                case 'M':
+                                    $data['process'] = "Outbound from " . $item['origin'] . " station";
+                                    break;
+                                case 'H':
+                                    $data['process'] = "In transit";
+                                    break;
+                                case 'R':
+                                    $data['process'] = "Inbound to " . $item['origin'] . " station";
+                                    break;
+                                case 'P':
+                                    $data['process'] = "In Packing";
+                                    break;
+                                case 'D':
+                                    $data['process'] = "Out for delivery";
+                                    break;
+                                default:
+                                    $data['process'] = null;
+                                    break;
+                            }
 
-            $crawlerResult = $crawler->filter('#products tr:not(:first-child)')->each(function (Crawler $node, $i) {
-                if (strtolower($node->text()) != 'invalid cn') {
-                    $result = $node->filter('td:not(:first-child)')->each(function (Crawler $node, $i) {
-                        return trim_spaces($node->text());
-                    });
+                            $data['type'] = $this->distinguishProcess($item['type']);
 
-                    $data = [];
-                    foreach ($result as $key => $item) {
-                        if ($key == 0) {
-                            $parcel = Carbon::createFromFormat("d/m/Y H:i:s", $item);
-                            $data['date'] = $parcel->toDateTimeString();
-                            $data['timestamp'] = $parcel->timestamp;
+                            switch ($item['origin']) {
+                                case "HUB":
+                                    $data['event'] = 'Petaling Jaya';
+                                    break;
+                                case "HBN":
+                                    $data['event'] = 'Butterworth';
+                                    break;
+                                case "Warehouse":
+                                    $data['event'] = 'Warehouse';
+                                    break;
+                                default:
+                                    $data['event'] = ucwords($item['origin_defi']);
+                                    break;
+                            }
+
+                            $main[] = $data;
                         }
-                        if ($key == 1) {
-                            $data['process'] = $item;
-                            $data['type'] = $this->distinguishProcess($item);
-                        }
-                        if ($key == 2) {
-                            $data['event'] = $item;
-                        }
+                        return $this->buildResponse($result, $main);
                     }
-
-                    return $data;
-                } else {
-                    return null;
                 }
-            });
-
-            //reset if not found. weird dom output
-            if ($crawlerResult[0] == []) {
-                $crawlerResult = [];
             }
-
-            return $this->buildResponse($result, $crawlerResult);
         }
 
         return $this->buildResponse($result, []);

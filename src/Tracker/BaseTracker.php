@@ -89,6 +89,26 @@ class BaseTracker
 
         $process = strtolower($process);
 
+        if ($process == 'd') {
+            $process = 'delivery';
+        }
+
+        if ($process == 'p') {
+            $process = 'packing';
+        }
+
+        if ($process == 'r' || $process == 'h') {
+            $process = 'inbound';
+        }
+
+        if ($process == 'i') {
+            $process = 'collected';
+        }
+
+        if ($process == 'm' || $process == 'warehouse') {
+            $process = 'depart';
+        }
+
         if (preg_match('(counter|outbound|transhipment|collection|collected|picked up)', $process)) {
             return "item_received";
         }
@@ -105,7 +125,7 @@ class BaseTracker
             return "facility_process";
         }
 
-        if (preg_match('(unsuccessful|failed)', $process)) {
+        if (preg_match('(unsuccessful|failed|i_pod|undl|m_undl)', $process)) {
             return "delivery_failed";
         }
 
@@ -113,7 +133,7 @@ class BaseTracker
             return "out_for_delivery";
         }
 
-        if (preg_match('(delivered)', $process)) {
+        if (preg_match('(delivered|m_pod|pod)', $process)) {
             return "delivered";
         }
 

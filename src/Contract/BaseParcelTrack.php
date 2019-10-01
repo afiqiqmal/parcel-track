@@ -105,6 +105,10 @@ class BaseParcelTrack
             $courier_matched[] = (new Abx())->getSourceName();
         }
 
+        if (preg_match('/^MY.*\d$/', $this->trackingCode)) {
+            $courier_matched[] = (new Gdex())->getSourceName();
+        }
+
         if (preg_match('/MYM.\d*/', $this->trackingCode)) {
             $courier_matched[] = (new LELExpress())->getSourceName();
         }
