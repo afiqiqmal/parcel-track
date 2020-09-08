@@ -4,7 +4,7 @@
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/parcel-track.svg)](https://codecov.io/gh/afiqiqmal/parcel-track)
 [![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/parcel-track.svg)](https://packagist.org/packages/afiqiqmal/parcel-track)
 [![Packagist](https://img.shields.io/packagist/v/afiqiqmal/parcel-track.svg)](https://packagist.org/packages/afiqiqmal/parcel-track)
-
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/mhi9388?locale.x=en_US)
 
 Simple Parcel Tracker for Local Parcel Courier. 
 Basically it just crawl the courier website or existing API. Need time to time to monitor web/api changes before failure happen.
